@@ -5,11 +5,23 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: Helvetica, Arial, sans-serif;
     overflow-x: hidden;
 }
 
 /* Smooth scrolling */
 html {
     scroll-behavior: smooth;
+}
+
+h1 {
+color: #FFF;
+font-size: 120px;
+font-style: normal;
+font-weight: 700;
+line-height: 144px; /* 120% */
+}
+
+.highlight {
+    color: #F3389E;
 }

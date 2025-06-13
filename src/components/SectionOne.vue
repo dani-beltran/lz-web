@@ -5,7 +5,8 @@
       alt="LayerZ Logo" 
       class="logo"
     />
-    <!-- Content for section 1 goes here -->
+    <h1>Taking Customer Experiences,
+  level to another <span class="highlight">level</span>.</h1>
   </section>
 </template>
 
@@ -31,13 +32,14 @@ export default {
     background-repeat: no-repeat;
     background-position: right center;
     background-size: auto 100%;
+    padding: 0px 80px;
 }
 
 .logo {
     position: absolute;
     top: 80px;
     left: 80px;
-    height: 200px;
+    height: 223px;
     width: auto;
     z-index: 10;
 }
