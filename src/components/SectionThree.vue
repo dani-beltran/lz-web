@@ -83,7 +83,6 @@ export default {
   gap: 20px;
   width: 100%;
   max-width: 1600px;
-  padding: 20px;
 }
 .grid-item {
   color: #ffffff; /* White */

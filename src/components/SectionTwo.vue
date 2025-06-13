@@ -40,7 +40,6 @@ export default {
 <style scoped>
 .section {
   width: 100vw;
-  height: 100vh;
   position: relative;
   padding: 60px 80px;
 }
