@@ -43,20 +43,29 @@
     </div>
     
     <div class="footer-bottom">
-      <p>&copy; 2025 Your Company Name. All rights reserved.</p>
+      <p>&copy; 2025 Herragen AG. All rights reserved.</p>
       <div class="social-links">
-        <a href="#facebook" aria-label="Facebook">📘</a>
-        <a href="#twitter" aria-label="Twitter">🐦</a>
-        <a href="#linkedin" aria-label="LinkedIn">💼</a>
-        <a href="#instagram" aria-label="Instagram">📷</a>
+        <a href="https://x.com/layerz_com" aria-label="Twitter">
+          <TwitterIcon :size="20" />
+        </a>
+        <a href="https://www.linkedin.com/company/layerz-digitalexperience/" aria-label="LinkedIn">
+          <LinkedinIcon :size="20" />
+        </a>
       </div>
     </div>
   </footer>
 </template>
 
 <script>
+import TwitterIcon from './icons/TwitterIcon.vue'
+import LinkedinIcon from './icons/LinkedinIcon.vue'
+
 export default {
-  name: 'FooterComponent'
+  name: 'FooterComponent',
+  components: {
+    TwitterIcon,
+    LinkedinIcon
+  }
 }
 </script>
 
@@ -126,6 +135,9 @@ export default {
     text-decoration: none;
     font-size: 18px;
     transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .social-links a:hover {
