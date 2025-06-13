@@ -7,7 +7,7 @@
     />
     <TextSlider 
       :slides="heroSlides" 
-      :interval="5000"
+      :interval="8000"
       @slide-change="onSlideChange"
     />
   </section>
@@ -26,7 +26,8 @@ export default {
       heroSlides: [
         'Taking Customer Experiences,<br>to another <span class="highlight">level</span>',
         'We believe <span class="highlight">online</span><br>experiences should feel as<br><span class="highlight">personal</span> & <span class="highlight">timely</span> as those in<br>a real shop',
-        '<span class="highlight">However,</span><br>Online, most brands miss the <span class="highlight">moment</span><br>That\'s why we built <span class="highlight">LayerZ</span>'
+        '<span class="highlight">However,</span><br>Online, most brands miss the <span class="highlight">moment</span><br>That\'s why we built <span class="highlight">LayerZ</span>',
+        'Layer Z goes beyond <span class="highlight">personalisation</span>,<br>It connects through <span class="highlight">human-like</span><br>conversations, triggered by real<br><span class="highlight">behaviour</span>'
       ]
     }
   },
