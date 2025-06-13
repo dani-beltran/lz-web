@@ -1,5 +1,7 @@
 <template>
   <section class="section section-2" id="section-2">
+    <h2>Make silent signals speak, like in the real world</h2>
+    <h3>Trigger at the right time, with the right message</h3>
     <div class="two-column-layout">
       <div class="left-column">
         <img 
@@ -30,11 +32,8 @@ export default {
 .section {
     width: 100vw;
     height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     position: relative;
-    padding: 0 80px;
+    padding: 60px 80px;
 }
 
 .two-column-layout {
