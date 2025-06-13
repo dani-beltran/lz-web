@@ -26,5 +26,5 @@ export default {
 
 <style>
 /* Import the main CSS */
-@import './assets/style.css';
+@import './assets/css/style.css';
 </style>

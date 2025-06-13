@@ -1,5 +1,10 @@
 <template>
   <section class="section section-1" id="section-1">
+    <img 
+      src="@/assets/logo/layerz-logo.png" 
+      alt="LayerZ Logo" 
+      class="logo"
+    />
     <!-- Content for section 1 goes here -->
   </section>
 </template>
@@ -21,11 +26,20 @@ export default {
 }
 
 .section-1 {
-    background-color: #4338ca; /* Indigo */
+    background-color: #270972; /* Indigo */
     background-image: url('@/assets/bg/bg-pattern.png');
     background-repeat: no-repeat;
     background-position: right center;
     background-size: auto 100%;
+}
+
+.logo {
+    position: absolute;
+    top: 80px;
+    left: 80px;
+    height: 200px;
+    width: auto;
+    z-index: 10;
 }
 
 /* Responsive adjustments for smaller screens */
