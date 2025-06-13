@@ -5,8 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "build": "webpack --mode=production",
-    "dev": "webpack --mode=development --watch",
-    "serve": "webpack serve --mode=development --open"
+    "dev": "webpack serve --mode=development --open"
   },
   "devDependencies": {
     "@vue/compiler-sfc": "^3.5.16",

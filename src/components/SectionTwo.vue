@@ -11,5 +11,16 @@ export default {
 </script>
 
 <style scoped>
-/* Component-specific styles can go here */
+.section {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.section-2 {
+    background-color: #ffffff; /* White */
+}
 </style>
