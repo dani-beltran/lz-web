@@ -1,22 +1,31 @@
 <template>
   <section class="section section-2" id="section-2">
-    <h2>Make silent signals speak, like in the real world</h2>
-    <h3>Trigger at the right time, with the right message</h3>
-    <div class="two-column-layout">
-      <div class="left-column">
-        <img 
-          src="@/assets/imgs/journey-behavioral-mobile-layerz.png" 
-          alt="Journey Behavioral Mobile LayerZ"
-          class="journey-image"
-        />
-        <img 
-          src="@/assets/imgs/nolita-chair-screenshot.png" 
-          alt="Modal Review User LayerZ"
-          class="modal-image"
-        />
+    <div class="grid-container">
+      <div class="grid-item">
+        <div class="text-container">
+          <h2>Behavioral insights</h2>
+          <p>Understand user interest through real-time analysis of behavioral signals </p>
+        </div>
+        <div class="image-container purple">
+          <img
+            src="@/assets/imgs/journey-behavioral-mobile-layerz.png"
+            alt="Journey Behavioral Mobile LayerZ"
+            class="item-image"
+          />
+        </div>
       </div>
-      <div class="right-column">
-        <!-- Content for right column goes here -->
+      <div class="grid-item">
+        <div class="text-container">
+          <h2>Trigger smart interactions</h2>
+          <p>Smart, contextual interactions at the peak of intent</p>
+        </div>
+        <div class="image-container pink">
+          <img
+            src="@/assets/imgs/nolita-chair-screenshot.png"
+            alt="Modal Review User LayerZ"
+            class="item-image"
+          />
+        </div>
       </div>
     </div>
   </section>
@@ -24,142 +33,100 @@
 
 <script>
 export default {
-  name: 'SectionTwo'
-}
+  name: "SectionTwo",
+};
 </script>
 
 <style scoped>
 .section {
-    width: 100vw;
-    height: 100vh;
-    position: relative;
-    padding: 60px 80px;
-}
-
-.two-column-layout {
-    display: flex;
-    width: 100%;
-    max-width: 1920px;
-    height: 100%;
-    align-items: center;
-    gap: 60px;
-    position: relative;
-    z-index: 3;
-}
-
-.left-column {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.right-column {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-}
-
-.journey-image {
-    max-width: 60%;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-}
-
-.modal-image {
-    max-width: 40%;
-    margin-top: 40%;
-    width: auto;
-    height: auto;
-    object-fit: contain;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  padding: 60px 80px;
 }
 
 .section-2 {
-    background-color: #ffffff; /* White */
-    position: relative;
-    overflow: hidden;
+  background-color: #ffffff; /* White */
+  position: relative;
+  overflow: hidden;
 }
 
-.section-2::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 35%;
-    height: 100%;
-    background-image: url('@/assets/bg/purple-square.png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: left center;
-    transform: translateY(-50%);
-    z-index: 1;
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 100%;
+  max-width: 1600px;
+  margin: auto;
 }
 
-.section-2::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 20%;
-    width: 35%;
-    height: 100%;
-    background-image: url('@/assets/bg/pink-square.png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: left center;
-    transform: translateY(-50%); /* Slightly offset to the bottom */
-    z-index: 2;
+.grid-item {
+  color: #270972; /* Indigo */
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  height: 100%;
+}
+
+.image-container {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.image-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: left center;
+  z-index: 0;
+}
+
+.image-container.rotated::before {
+  transform: rotate(270deg);
+}
+
+.image-container.pink::before {
+  background-image: url("@/assets/bg/pink-square.png");
+}
+.image-container.purple::before {
+  background-image: url("@/assets/bg/purple-square.png");
+}
+
+.text-container {
+  text-align: left;
+  width: 100%;
+}
+
+.item-image {
+  width: auto;
+  height: auto;
+  max-width: 90%;
+  max-height: 50vh;
+  position: relative;
+  z-index: 1;
 }
 
 @media (max-width: 1280px) {
-    .section {
-        padding: 0 40px;
-    }
-    
-    .two-column-layout {
-        flex-direction: column;
-        gap: 40px;
-        text-align: center;
-    }
-    
-    .left-column {
-        flex-direction: row;
-        gap: 30px;
-        justify-content: center;
-        align-items: normal;
-    }
-    
-    .left-column,
-    .right-column {
-        flex: none;
-        width: 100%;
-    }
-    
-    .journey-image,
-    .modal-image {
-        max-width: 40%;
-        max-height: 50vh;
-    }
+  .section {
+    padding: 0 40px;
+  }
 
-    .modal-image {
-        margin-top: 20px;
-    }
-    
-    .section-2::before {
-        top: 0;
-        transform: none;
-        width: 100%;
-        height: 50%;
-    }
-    
-    .section-2::after {
-        top: 0;
-        width: 100%;
-        height: 50%;
-        background-position: center;
-        transform: none;
-    }
+  .grid-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
 }
-
 </style>
