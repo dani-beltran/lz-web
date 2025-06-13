@@ -51,6 +51,10 @@
         <a href="https://www.linkedin.com/company/layerz-digitalexperience/" aria-label="LinkedIn">
           <LinkedinIcon :size="20" />
         </a>
+        <a href="https://www.youtube.com/@LayerZ-t6p" aria-label="YouTube">
+          <!-- Making Youtube icon match its height with other icons resizing by its ratio -->
+          <YouTubeIcon :size="Math.ceil(20 * (4 / 3))" />
+        </a>
       </div>
     </div>
   </footer>
@@ -59,12 +63,14 @@
 <script>
 import TwitterIcon from './icons/TwitterIcon.vue'
 import LinkedinIcon from './icons/LinkedinIcon.vue'
+import YouTubeIcon from './icons/YouTubeIcon.vue'
 
 export default {
   name: 'FooterComponent',
   components: {
     TwitterIcon,
-    LinkedinIcon
+    LinkedinIcon,
+    YouTubeIcon
   }
 }
 </script>
