@@ -27,6 +27,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "lucide-vue-next": "^0.515.0",
     "vue": "^3.5.16"
   }
 }
