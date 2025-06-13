@@ -5,6 +5,11 @@ const { VueLoaderPlugin } = require('vue-loader');
 
 module.exports = {
   entry: './src/index.js',
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+    },
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
@@ -41,6 +46,10 @@ module.exports = {
       },
       {
         test: /\.svg$/,
+        type: 'asset/resource'
+      },
+      {
+        test: /\.(png|jpe?g|gif|webp)$/i,
         type: 'asset/resource'
       }
     ]

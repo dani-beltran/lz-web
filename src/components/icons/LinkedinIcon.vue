@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import linkedinIcon from '../../assets/icons/linkedin.svg'
+import linkedinIcon from '@/assets/icons/linkedin.svg'
 
 export default {
   name: 'LinkedinIcon',

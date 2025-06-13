@@ -22,5 +22,24 @@ export default {
 
 .section-1 {
     background-color: #4338ca; /* Indigo */
+    background-image: url('@/assets/bg/bg-pattern.png');
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: auto 100%;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .section-1 {
+        background-size: auto 80%;
+        background-position: right top;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-1 {
+        background-size: auto 60%;
+        background-position: center right;
+    }
 }
 </style>

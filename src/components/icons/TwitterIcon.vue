@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import twitterIcon from '../../assets/icons/x.svg'
+import twitterIcon from '@/assets/icons/x.svg'
 
 export default {
   name: 'TwitterIcon',
