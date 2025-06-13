@@ -1,6 +1,5 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
 
 module.exports = {
@@ -20,15 +19,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html',
       filename: 'index.html',
-    }),
-    new CopyWebpackPlugin({
-      patterns: [
-        {
-          from: './src/assets',
-          to: 'assets',
-          noErrorOnMissing: true, // Won't fail if assets folder doesn't exist
-        }
-      ],
     }),
   ],
   module: {
