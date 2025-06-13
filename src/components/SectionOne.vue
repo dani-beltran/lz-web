@@ -24,9 +24,9 @@ export default {
   data() {
     return {
       heroSlides: [
-        'Taking Customer Experiences,<br>level to another <span class="highlight">level</span>',
+        'Taking Customer Experiences,<br>to another <span class="highlight">level</span>',
         'We believe <span class="highlight">online</span><br>experiences should feel as<br><span class="highlight">personal</span> & <span class="highlight">timely</span> as those in<br>a real shop',
-        'Create <span class="highlight">engaging</span> digital<br>journeys that convert<br>visitors into <span class="highlight">customers</span>'
+        '<span class="highlight">However,</span><br>Online, most brands miss the <span class="highlight">moment</span><br>That\'s why we built <span class="highlight">LayerZ</span>'
       ]
     }
   },
@@ -55,24 +55,23 @@ export default {
     background-repeat: no-repeat;
     background-position: right center;
     background-size: auto 100%;
-    padding: 0px 80px;
 }
 
 .logo {
     position: absolute;
     top: 80px;
     left: 80px;
-    height: 223px;
+    height: 150px;
     width: auto;
     z-index: 10;
 }
 
 /* Responsive adjustments for smaller screens */
-@media (max-width: 768px) {
+@media (max-width: 1280px) {
     .section-1 {
-        background-size: auto 80%;
-        background-position: right top;
-        padding: 0px 40px;
+        background-size: auto 60%;
+        background-position: bottom right;
+        background-position-x: calc(100% + 80px);
     }
     
     .logo {
@@ -84,9 +83,9 @@ export default {
 
 @media (max-width: 480px) {
     .section-1 {
-        background-size: auto 60%;
-        background-position: center right;
-        padding: 0px 20px;
+        background-size: auto 50%;
+        background-position: bottom right;
+        background-position-x: calc(100% + 40px);
     }
     
     .logo {

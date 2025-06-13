@@ -95,7 +95,6 @@ export default {
 <style scoped>
 .slider-container {
     width: 100%;
-    max-width: 800px;
     overflow: hidden;
     position: relative;
 }
@@ -109,29 +108,22 @@ export default {
     flex: 0 0 auto;
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-.slide h1 {
-    font-size: 3.5rem;
-    font-weight: 700;
-    line-height: 1.2;
-    color: white;
-    text-align: center;
-    max-width: 100%;
+    justify-content: flex-start;
+    text-align: left;
+    padding: 0 80px;
+    width: 100%;
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
-    .slide h1 {
-        font-size: 2.5rem;
+@media (max-width: 1280px) {
+    .slide {
+        padding: 0 40px;
     }
 }
 
 @media (max-width: 480px) {
-    .slide h1 {
-        font-size: 1.8rem;
+    .slide {
+        padding: 0 20px;
     }
 }
 </style>

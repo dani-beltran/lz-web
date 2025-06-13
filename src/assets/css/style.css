@@ -16,12 +16,27 @@ html {
 
 h1 {
 color: #FFF;
-font-size: 120px;
 font-style: normal;
+font-size: 3.5rem;
 font-weight: 700;
-line-height: 144px; /* 120% */
+line-height: 1.2;    
+text-align: left;
+width: 100%;
 }
 
 .highlight {
     color: #F3389E;
+}
+
+
+@media (max-width: 1280px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem;
+    }
 }
