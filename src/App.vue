@@ -3,6 +3,7 @@
     <SectionOne />
     <SectionTwo />
     <SectionThree />
+    <SectionFour />
     <FooterComponent />
   </div>
 </template>
@@ -11,6 +12,7 @@
 import SectionOne from './components/SectionOne.vue'
 import SectionTwo from './components/SectionTwo.vue'
 import SectionThree from './components/SectionThree.vue'
+import SectionFour from './components/SectionFour.vue'
 import FooterComponent from './components/FooterComponent.vue'
 
 export default {
@@ -19,6 +21,7 @@ export default {
     SectionOne,
     SectionTwo,
     SectionThree,
+    SectionFour,
     FooterComponent
   }
 }
