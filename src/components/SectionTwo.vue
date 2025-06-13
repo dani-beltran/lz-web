@@ -1,6 +1,22 @@
 <template>
   <section class="section section-2" id="section-2">
-    <!-- Content for section 2 goes here -->
+    <div class="two-column-layout">
+      <div class="left-column">
+        <img 
+          src="@/assets/imgs/journey-behavioral-mobile-layerz.png" 
+          alt="Journey Behavioral Mobile LayerZ"
+          class="journey-image"
+        />
+        <img 
+          src="@/assets/imgs/nolita-chair-screenshot.png" 
+          alt="Modal Review User LayerZ"
+          class="modal-image"
+        />
+      </div>
+      <div class="right-column">
+        <!-- Content for right column goes here -->
+      </div>
+    </div>
   </section>
 </template>
 
@@ -18,6 +34,47 @@ export default {
     align-items: center;
     justify-content: center;
     position: relative;
+    padding: 0 80px;
+}
+
+.two-column-layout {
+    display: flex;
+    width: 100%;
+    max-width: 1920px;
+    height: 100%;
+    align-items: center;
+    gap: 60px;
+    position: relative;
+    z-index: 3;
+}
+
+.left-column {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.right-column {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.journey-image {
+    max-width: 60%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+.modal-image {
+    max-width: 40%;
+    margin-top: 40%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
 }
 
 .section-2 {
@@ -57,6 +114,39 @@ export default {
 }
 
 @media (max-width: 1280px) {
+    .section {
+        padding: 0 40px;
+    }
+    
+    .two-column-layout {
+        flex-direction: column;
+        gap: 40px;
+        text-align: center;
+    }
+    
+    .left-column {
+        flex-direction: row;
+        gap: 30px;
+        justify-content: center;
+        align-items: normal;
+    }
+    
+    .left-column,
+    .right-column {
+        flex: none;
+        width: 100%;
+    }
+    
+    .journey-image,
+    .modal-image {
+        max-width: 40%;
+        max-height: 50vh;
+    }
+
+    .modal-image {
+        margin-top: 20px;
+    }
+    
     .section-2::before {
         top: 0;
         transform: none;
@@ -69,7 +159,8 @@ export default {
         width: 100%;
         height: 50%;
         background-position: center;
-        transform: none ;
+        transform: none;
     }
 }
+
 </style>
