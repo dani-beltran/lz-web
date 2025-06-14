@@ -2,9 +2,15 @@
   <section class="section section-2" id="section-2">
     <div class="grid-container">
       <div class="grid-item">
-        <div class="text-container">
-          <h2>Behavioral insights</h2>
-          <p>Understand user interest through real-time analysis of behavioral signals </p>
+        <div class="content-header">
+          <Eye class="section-icon highlight" />
+          <div class="text-container">
+            <h2>Behavioral insights</h2>
+            <p>
+              Understand user interest through real-time analysis of behavioral
+              signals
+            </p>
+          </div>
         </div>
         <div class="image-container purple">
           <img
@@ -15,10 +21,14 @@
         </div>
       </div>
       <div class="grid-item">
-        <div class="text-container">
-          <h2>Trigger smart interactions</h2>
-          <p>Smart, contextual interactions at the peak of intent</p>
+        <div class="content-header">
+          <MessagesSquare class="section-icon highlight" />
+          <div class="text-container">
+            <h2>Trigger smart interactions</h2>
+            <p>Smart, contextual interactions at the peak of intent</p>
+          </div>
         </div>
+
         <div class="image-container pink">
           <img
             src="@/assets/imgs/nolita-chair-screenshot.png"
@@ -32,8 +42,14 @@
 </template>
 
 <script>
+import { Eye, MessagesSquare } from "lucide-vue-next";
+
 export default {
   name: "SectionTwo",
+  components: {
+    Eye,
+    MessagesSquare,
+  },
 };
 </script>
 
@@ -81,7 +97,7 @@ export default {
 }
 
 .image-container::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -116,6 +132,19 @@ export default {
   max-height: 50vh;
   position: relative;
   z-index: 1;
+}
+
+.content-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  width: 100%;
+}
+
+.section-icon {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
 }
 
 @media (max-width: 1280px) {
