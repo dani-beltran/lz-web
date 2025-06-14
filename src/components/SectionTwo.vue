@@ -54,12 +54,29 @@
           />
         </div>
       </div>
+      <div class="grid-item">
+        <div class="content-header">
+          <DoorOpen class="section-icon highlight" />
+          <div class="text-container">
+            <h2>Exit intent detection</h2>
+            <p>Triggered when an engaged user is about to leave a page.</p>
+          </div>
+        </div>
+
+        <div class="image-container purple">
+          <img
+            src="@/assets/imgs/exit-intent-detection-modal-layerz.png"
+            alt="Modal Review User LayerZ"
+            class="item-image"
+          />
+        </div>
+      </div>
     </div>
   </section>
 </template>
 
 <script>
-import { Eye, MessagesSquare, Bot } from "lucide-vue-next";
+import { Eye, MessagesSquare, Bot, DoorOpen } from "lucide-vue-next";
 
 export default {
   name: "SectionTwo",
@@ -67,6 +84,7 @@ export default {
     Eye,
     MessagesSquare,
     Bot,
+    DoorOpen
   },
 };
 </script>
