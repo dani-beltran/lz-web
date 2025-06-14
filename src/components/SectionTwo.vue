@@ -71,6 +71,23 @@
           />
         </div>
       </div>
+      <div class="grid-item">
+        <div class="content-header">
+          <DoorOpen class="section-icon highlight" />
+          <div class="text-container">
+            <h2>Intent clarification</h2>
+            <p>Triggered by <span class="highlight">hesitation</span>, like a salesperson stepping in to help.</p>
+          </div>
+        </div>
+
+        <div class="image-container purple">
+          <img
+            src="@/assets/imgs/Intent-clarification-hesitation-behavioral-modal.png"
+            alt="Modal Review User LayerZ"
+            class="item-image"
+          />
+        </div>
+      </div>
     </div>
   </section>
 </template>
