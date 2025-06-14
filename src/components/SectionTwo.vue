@@ -73,16 +73,33 @@
       </div>
       <div class="grid-item">
         <div class="content-header">
-          <DoorOpen class="section-icon highlight" />
+          <Angry class="section-icon highlight" />
           <div class="text-container">
-            <h2>Intent clarification</h2>
-            <p>Triggered by <span class="highlight">hesitation</span>, like a salesperson stepping in to help.</p>
+            <h2>Frustration detection</h2>
+            <p>Triggered by user frustration, behavioral loops or signs of friction, then we <span class="highlight">offer contextual help</span>.</p>
           </div>
         </div>
 
         <div class="image-container purple">
           <img
-            src="@/assets/imgs/Intent-clarification-hesitation-behavioral-modal.png"
+            src="@/assets/imgs/frustration-detection-behavioral-layerz.png"
+            alt="Modal Review User LayerZ"
+            class="item-image"
+          />
+        </div>
+      </div>
+      <div class="grid-item">
+        <div class="content-header">
+          <Coins class="section-icon highlight" />
+          <div class="text-container">
+            <h2>Contextual Cross-sell</h2>
+            <p>Triggered when user behaviour suggests a likely combo or need.</p>
+          </div>
+        </div>
+
+        <div class="image-container pink">
+          <img
+            src="@/assets/imgs/personalization-based-on-behavior.png"
             alt="Modal Review User LayerZ"
             class="item-image"
           />
@@ -93,7 +110,7 @@
 </template>
 
 <script>
-import { Eye, MessagesSquare, Bot, DoorOpen } from "lucide-vue-next";
+import { Eye, MessagesSquare, Bot, DoorOpen, Angry, Coins } from "lucide-vue-next";
 
 export default {
   name: "SectionTwo",
@@ -101,7 +118,9 @@ export default {
     Eye,
     MessagesSquare,
     Bot,
-    DoorOpen
+    DoorOpen,
+    Angry,
+    Coins
   },
 };
 </script>
