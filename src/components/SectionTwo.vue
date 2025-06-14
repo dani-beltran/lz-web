@@ -7,8 +7,8 @@
           <div class="text-container">
             <h2>Behavioral insights</h2>
             <p>
-              Understand user interest through real-time analysis of behavioral
-              signals
+              Understand user interest through <span class="highlight">real-time analysis</span> of behavioral
+              signals.
             </p>
           </div>
         </div>
@@ -25,7 +25,7 @@
           <MessagesSquare class="section-icon highlight" />
           <div class="text-container">
             <h2>Trigger smart interactions</h2>
-            <p>Smart, contextual interactions at the peak of intent</p>
+            <p>Smart, contextual interactions at the <span class="highlight">peak of intent</span>.</p>
           </div>
         </div>
 
@@ -37,18 +37,36 @@
           />
         </div>
       </div>
+      <div class="grid-item">
+        <div class="content-header">
+          <Bot class="section-icon highlight" />
+          <div class="text-container">
+            <h2>Meaningful conversations</h2>
+            <p><span class="highlight">AI agents</span> proactively refine user interest through <span class="highlight">human-like interactions</span> on the right context, at the right time.</p>
+          </div>
+        </div>
+
+        <div class="image-container pink">
+          <img
+            src="@/assets/imgs/ai-agent-layerz-modal-chatbot.png"
+            alt="Modal Review User LayerZ"
+            class="item-image"
+          />
+        </div>
+      </div>
     </div>
   </section>
 </template>
 
 <script>
-import { Eye, MessagesSquare } from "lucide-vue-next";
+import { Eye, MessagesSquare, Bot } from "lucide-vue-next";
 
 export default {
   name: "SectionTwo",
   components: {
     Eye,
     MessagesSquare,
+    Bot,
   },
 };
 </script>
