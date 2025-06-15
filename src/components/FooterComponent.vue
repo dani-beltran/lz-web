@@ -4,40 +4,40 @@
       <div class="footer-section">
         <h4>Company</h4>
         <ul>
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#careers">Careers</a></li>
-          <li><a href="#press">Press</a></li>
-          <li><a href="#blog">Blog</a></li>
+          <li><a href="#about" @click.prevent="openModal">About Us</a></li>
+          <li><a href="#careers" @click.prevent="openModal">Careers</a></li>
+          <li><a href="#press" @click.prevent="openModal">Press</a></li>
+          <li><a href="#blog" @click.prevent="openModal">Blog</a></li>
         </ul>
       </div>
       
       <div class="footer-section">
         <h4>Support</h4>
         <ul>
-          <li><a href="#help">Help Center</a></li>
-          <li><a href="#contact">Contact Us</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#status">Service Status</a></li>
+          <li><a href="#help" @click.prevent="openModal">Help Center</a></li>
+          <li><a href="#contact" @click.prevent="openModal">Contact Us</a></li>
+          <li><a href="#faq" @click.prevent="openModal">FAQ</a></li>
+          <li><a href="#status" @click.prevent="openModal">Service Status</a></li>
         </ul>
       </div>
       
       <div class="footer-section">
         <h4>Legal</h4>
         <ul>
-          <li><a href="#terms">Terms & Conditions</a></li>
-          <li><a href="#privacy">Privacy Policy</a></li>
-          <li><a href="#cookies">Cookie Policy</a></li>
-          <li><a href="#disclaimer">Disclaimer</a></li>
+          <li><a href="#terms" @click.prevent="openModal">Terms & Conditions</a></li>
+          <li><a href="#privacy" @click.prevent="openModal">Privacy Policy</a></li>
+          <li><a href="#cookies" @click.prevent="openModal">Cookie Policy</a></li>
+          <li><a href="#disclaimer" @click.prevent="openModal">Disclaimer</a></li>
         </ul>
       </div>
       
       <div class="footer-section">
         <h4>Connect</h4>
         <ul>
-          <li><a href="#newsletter">Newsletter</a></li>
-          <li><a href="#community">Community</a></li>
-          <li><a href="#partners">Partners</a></li>
-          <li><a href="#developers">Developers</a></li>
+          <li><a href="#newsletter" @click.prevent="openModal">Newsletter</a></li>
+          <li><a href="#community" @click.prevent="openModal">Community</a></li>
+          <li><a href="#partners" @click.prevent="openModal">Partners</a></li>
+          <li><a href="#developers" @click.prevent="openModal">Developers</a></li>
         </ul>
       </div>
     </div>
@@ -57,6 +57,12 @@
         </a>
       </div>
     </div>
+    
+    <!-- Modal Component -->
+    <Modal :isVisible="showModal" @close="showModal = false">
+      <h2>Hello World</h2>
+      <p>Hello world</p>
+    </Modal>
   </footer>
 </template>
 
@@ -64,13 +70,25 @@
 import TwitterIcon from './icons/TwitterIcon.vue'
 import LinkedinIcon from './icons/LinkedinIcon.vue'
 import YouTubeIcon from './icons/YouTubeIcon.vue'
+import Modal from './Modal.vue'
 
 export default {
   name: 'FooterComponent',
   components: {
     TwitterIcon,
     LinkedinIcon,
-    YouTubeIcon
+    YouTubeIcon,
+    Modal
+  },
+  data() {
+    return {
+      showModal: false
+    }
+  },
+  methods: {
+    openModal() {
+      this.showModal = true
+    }
   }
 }
 </script>
