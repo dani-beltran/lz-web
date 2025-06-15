@@ -1,93 +1,125 @@
 <template>
-   <h3>Contact us</h3>
-    <p class="subtitle">If you have any questions, feel free to reach out!</p>
-      <form @submit.prevent="submitForm" class="contact-form">
-        <div class="form-group">
-          <label for="name">Full Name *</label>
-          <input 
-            type="text" 
-            id="name" 
-            v-model="form.name" 
-            required 
-            class="form-input"
-            placeholder="Enter your full name"
-          />
-        </div>
-        
-        <div class="form-group">
-          <label for="email">Email Address *</label>
-          <input 
-            type="email" 
-            id="email" 
-            v-model="form.email" 
-            required 
-            class="form-input"
-            placeholder="Enter your email address"
-          />
-        </div>
-        
-        <div class="form-group">
-          <label for="subject">Subject</label>
-          <input 
-            type="text" 
-            id="subject" 
-            v-model="form.subject" 
-            class="form-input"
-            placeholder="What is this about?"
-          />
-        </div>
-        
-        <div class="form-group">
-          <label for="message">Message *</label>
-          <textarea 
-            id="message" 
-            v-model="form.message" 
-            required 
-            class="form-textarea"
-            rows="4"
-            placeholder="Tell us how we can help you..."
-          ></textarea>
-        </div>
-        
-        <div class="form-actions">
-          <button type="button" @click="$emit('cancel')" class="btn-cancel">
-            Cancel
-          </button>
-          <button type="submit" class="btn-submit">
-            Send Message
-          </button>
-        </div>
-      </form>
+  <h3>Contact us</h3>
+  <p class="subtitle">If you have any questions, feel free to reach out!</p>
+  <form @submit.prevent="submitForm" class="contact-form">
+    <div class="form-group">
+      <label for="name">Full Name *</label>
+      <input
+        type="text"
+        id="name"
+        v-model="form.name"
+        required
+        class="form-input"
+        placeholder="Enter your full name"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email Address *</label>
+      <input
+        type="email"
+        id="email"
+        v-model="form.email"
+        required
+        class="form-input"
+        placeholder="Enter your email address"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="subject">Subject</label>
+      <input
+        type="text"
+        id="subject"
+        v-model="form.subject"
+        class="form-input"
+        placeholder="What is this about?"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="message">Message *</label>
+      <textarea
+        id="message"
+        v-model="form.message"
+        required
+        class="form-textarea"
+        rows="4"
+        placeholder="Tell us how we can help you..."
+      ></textarea>
+    </div>
+
+    <div class="form-actions">
+      <button type="button" @click="$emit('cancel')" class="btn-cancel">
+        Cancel
+      </button>
+      <button type="submit" class="btn-submit" :disabled="isLoading">
+        <span v-if="!isLoading">Send Message</span>
+        <span v-else class="loading-content">
+          <div class="spinner"></div>
+          Sending...
+        </span>
+      </button>
+    </div>
+  </form>
 </template>
 
 <script>
+import emailjs from "@emailjs/browser";
+
 export default {
-  name: 'ContactForm',
-  emits: ['submit', 'cancel'],
+  name: "ContactForm",
+  emits: ["submit", "cancel"],
   data() {
     return {
+      isLoading: false,
       form: {
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
-      }
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      },
     };
+  },
+  mounted() {
+    // Initialize EmailJS with your public key
+    emailjs.init({
+      publicKey: "bYS8rZcjxAnKFuQCQ",
+    });
+    // Initialize form data if needed
+    this.resetForm();
   },
   methods: {
     submitForm() {
-      this.$emit('submit', { ...this.form })
-      this.resetForm()
+      this.isLoading = true;
+      
+      emailjs
+        .send("service_glm7r3f", "template_wwopw9n", {
+          ...this.form,
+          time: new Date().toISOString(),
+        })
+        .then(() => {
+          this.$emit("submit", { ...this.form });
+          this.resetForm();
+        })
+        .catch((error) => {
+          console.error("Failed to send email:", error);
+          alert("Failed to send message. Please try again.");
+        })
+        .finally(() => {
+          this.isLoading = false;
+        });
     },
+
     resetForm() {
       this.form = {
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
-      }
-    }
-  }
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      };
+    },
+  },
 };
 </script>
 <style scoped>
@@ -169,15 +201,44 @@ export default {
   color: white;
 }
 
-.btn-submit:hover {
+.btn-submit:hover:not(:disabled) {
   background-color: #1e0654;
+}
+
+.btn-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.loading-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @media (max-width: 480px) {
   .form-actions {
     flex-direction: column;
   }
-  
+
   .btn-cancel,
   .btn-submit {
     width: 100%;
