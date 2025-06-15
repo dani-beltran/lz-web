@@ -68,27 +68,34 @@ export default {
   width: 100vw;
   position: relative;
   padding: 60px 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .section-4 {
   background-color: #FFF;
 }
 
 .section-header {
+  
   max-width: 1600px;
+  width: 100%;
   margin-bottom: 40px;
   color: #270972; /* Indigo */
 }
 
 .section-content {
+  max-width: 1600px;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  
 }
 
 .grid-container {
   display: grid;
-  max-width: 1600px;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 180px;
   width: 100%;
