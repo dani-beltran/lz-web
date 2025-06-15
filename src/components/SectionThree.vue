@@ -74,20 +74,19 @@ export default {
 
 .section-3 {
   background-color: #270972; /* Indigo */
-  padding: 160px 60px;
+  padding: 160px 80px;
 }
 
 .grid-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 20px;
+  gap: 40px;
   width: 100%;
   max-width: 1600px;
 }
 .grid-item {
   color: #ffffff; /* White */
   border-radius: 8px;
-  padding: 20px;
   display: flex;
   flex-direction: row;
   align-items: start;
@@ -102,13 +101,13 @@ export default {
 
 @media (max-width: 1280px) {
   .section-3 {
-    padding: 40px 20px;
+    padding: 80px 40px;
   }
 }
 
 @media screen and (max-width: 768px) {
   .section-3 {
-    padding: 40px 20px;
+    padding: 60px 20px;
   }
   .grid-container {
     grid-template-columns: 1fr;
