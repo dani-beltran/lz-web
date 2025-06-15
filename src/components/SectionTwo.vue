@@ -179,7 +179,7 @@ export default {
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 60px;
   width: 100%;
   max-width: 1600px;
   margin: auto;
@@ -188,7 +188,6 @@ export default {
 .grid-item {
   color: #270972; /* Indigo */
   border-radius: 8px;
-  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -259,12 +258,11 @@ export default {
 
 @media (max-width: 1280px) {
   .section {
-    padding: 0 40px;
+    padding: 40px 20px;
   }
 
   .grid-container {
     grid-template-columns: 1fr;
-    gap: 40px;
   }
 }
 </style>

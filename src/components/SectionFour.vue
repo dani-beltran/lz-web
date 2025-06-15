@@ -78,7 +78,6 @@ export default {
 }
 
 .section-header {
-  
   max-width: 1600px;
   width: 100%;
   margin-bottom: 40px;
@@ -96,14 +95,14 @@ export default {
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 180px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 120px;
   width: 100%;
 }
 
 .grid-item {
   border-radius: 8px;
-  padding: 20px;
+  /* padding: 20px; */
 }
 
 .item-image {
@@ -131,5 +130,23 @@ export default {
 
 .linkedin-icon:hover {
   opacity: 0.7;
+}
+
+@media (max-width: 1280px) {
+  .section {
+    padding: 40px 20px;
+  }
+
+  .grid-container {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+
 }
 </style>

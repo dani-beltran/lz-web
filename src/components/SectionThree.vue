@@ -99,4 +99,21 @@ export default {
   height: 100px;
   color: #ffffff; /* White */
 }
+
+@media (max-width: 1280px) {
+  .section-3 {
+    padding: 40px 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+  .icon {
+    width: 80px;
+    height: 80px;
+  }
+  
+}
 </style>
