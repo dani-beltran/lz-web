@@ -88,6 +88,23 @@
           />
         </div>
       </div>
+       <div class="grid-item">
+        <div class="content-header">
+          <MessageCircleQuestion class="section-icon highlight" />
+          <div class="text-container">
+            <h2>Hesitation detection</h2>
+            <p>Triggered by hesitation, like a salesperson stepping in to help.</p>
+          </div>
+        </div>
+
+        <div class="image-container pink">
+          <img
+            src="@/assets/imgs/Intent-clarification-hesitation-behavioral-modal.png"
+            alt="Modal Review User LayerZ"
+            class="item-image"
+          />
+        </div>
+      </div>
       <div class="grid-item">
         <div class="content-header">
           <Coins class="section-icon highlight" />
@@ -105,6 +122,7 @@
           />
         </div>
       </div>
+      
       <div class="grid-item">
         <div class="content-header">
           <MapPin class="section-icon highlight" />
@@ -114,7 +132,7 @@
           </div>
         </div>
 
-        <div class="image-container pink">
+        <div class="image-container purple">
           <img
             src="@/assets/imgs/next-gen-dxp-recommendation-targeting.png"
             alt="Modal Review User LayerZ"
@@ -122,12 +140,13 @@
           />
         </div>
       </div>
+     
     </div>
   </section>
 </template>
 
 <script>
-import { Eye, MessagesSquare, Bot, DoorOpen, Angry, Coins, MapPin } from "lucide-vue-next";
+import { Eye, MessagesSquare, Bot, DoorOpen, Angry, Coins, MapPin, MessageCircleQuestion } from "lucide-vue-next";
 
 export default {
   name: "SectionTwo",
@@ -138,7 +157,8 @@ export default {
     DoorOpen,
     Angry,
     Coins,
-    MapPin
+    MapPin,
+    MessageCircleQuestion
   },
 };
 </script>
