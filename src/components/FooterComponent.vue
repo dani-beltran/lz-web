@@ -60,8 +60,7 @@
     
     <!-- Modal Component -->
     <Modal :isVisible="showModal" @close="showModal = false">
-      <h2>Hello World</h2>
-      <p>Hello world</p>
+      <ContactForm @submit="handleFormSubmit" @cancel="showModal = false" />
     </Modal>
   </footer>
 </template>
@@ -71,6 +70,7 @@ import TwitterIcon from './icons/TwitterIcon.vue'
 import LinkedinIcon from './icons/LinkedinIcon.vue'
 import YouTubeIcon from './icons/YouTubeIcon.vue'
 import Modal from './Modal.vue'
+import ContactForm from './ContactForm.vue'
 
 export default {
   name: 'FooterComponent',
@@ -78,16 +78,23 @@ export default {
     TwitterIcon,
     LinkedinIcon,
     YouTubeIcon,
-    Modal
+    Modal,
+    ContactForm
   },
   data() {
     return {
-      showModal: false
+      showModal: false,
     }
   },
   methods: {
     openModal() {
       this.showModal = true
+    },
+    handleFormSubmit(formData) {
+      console.log('Form data received in footer:', formData)
+      // Here you could send the data to your API
+      // For now, just close the modal
+      this.showModal = false
     }
   }
 }
