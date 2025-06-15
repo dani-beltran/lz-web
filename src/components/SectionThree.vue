@@ -9,7 +9,7 @@
         </div>
       </div>
       <div class="grid-item">
-        <Heart class="icon"></Heart>
+        <HeartHandshake class="icon"></HeartHandshake>
         <div>
           <h2 class="highlight">Build customer intimacy</h2>
           <p>React to behaviour & preferences in real time</p>
@@ -30,14 +30,14 @@
         </div>
       </div>
       <div class="grid-item">
-        <Zap class="icon"></Zap>
+        <ImageUpscale class="icon"></ImageUpscale>
         <div>
           <h2 class="highlight">No-code UX activation</h2>
           <p>Empower teams to create experiences without coding</p>
         </div>
       </div>
       <div class="grid-item">
-        <Plug class="icon"></Plug>
+        <Unplug class="icon"></Unplug>
         <div>
           <h2 class="highlight">Open by design</h2>
           <p>Connect any CRM, CDP, LLM and more</p>
@@ -48,17 +48,17 @@
 </template>
 
 <script>
-import { Rocket, Sparkles, Heart, Brain, Zap, Plug } from "lucide-vue-next";
+import { Rocket, Sparkles, Brain, Unplug, HeartHandshake, WandSparkles, ImageUpscale } from "lucide-vue-next";
 
 export default {
   name: "SectionThree",
   components: {
     Rocket,
     Sparkles,
-    Heart,
+    HeartHandshake,
     Brain,
-    Zap,
-    Plug,
+    Unplug,
+    ImageUpscale
   },
 };
 </script>
