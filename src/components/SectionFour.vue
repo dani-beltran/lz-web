@@ -134,7 +134,7 @@ export default {
 
 @media (max-width: 1280px) {
   .section {
-    padding: 40px 20px;
+    padding: 40px 40px;
   }
 
   .grid-container {
@@ -143,6 +143,9 @@ export default {
 }
 
 @media (max-width: 768px) {
+  .section {
+    padding: 40px 20px;
+  }
 
   .grid-container {
     grid-template-columns: 1fr;

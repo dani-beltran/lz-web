@@ -79,7 +79,7 @@ export default {
 .footer {
     background-color: #1f2937; /* Dark Gray */
     color: #f9fafb;
-    padding: 40px 20px 20px;
+    padding: 40px 40px;
     width: 100%;
 }
 
@@ -152,6 +152,9 @@ export default {
 
 /* Responsive adjustments for this component */
 @media (max-width: 768px) {
+  .footer {
+    padding: 40px 20px;
+  }
     .footer-content {
         grid-template-columns: 1fr;
         text-align: center;

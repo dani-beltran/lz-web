@@ -180,6 +180,7 @@ export default {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
+  row-gap: 80px;
   width: 100%;
   max-width: 1600px;
   margin: auto;
@@ -258,11 +259,28 @@ export default {
 
 @media (max-width: 1280px) {
   .section {
-    padding: 40px 20px;
+    padding: 40px 40px;
   }
 
   .grid-container {
     grid-template-columns: 1fr;
   }
+}
+
+@media screen and (max-width: 768px) {
+  .section {
+    padding: 40px 20px;
+  }
+  
+  .grid-container {
+    grid-template-columns: 1fr;
+    row-gap: 60px;
+  }
+
+  .section-icon {
+    width: 36px;
+    height: 36px;
+  }
+  
 }
 </style>

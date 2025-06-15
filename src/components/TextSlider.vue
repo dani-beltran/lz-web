@@ -121,7 +121,7 @@ export default {
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
     .slide {
         padding: 0 20px;
     }

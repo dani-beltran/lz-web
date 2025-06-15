@@ -74,7 +74,7 @@ export default {
 
 .section-3 {
   background-color: #270972; /* Indigo */
-  padding: 160px 0;
+  padding: 160px 60px;
 }
 
 .grid-container {
@@ -107,6 +107,9 @@ export default {
 }
 
 @media screen and (max-width: 768px) {
+  .section-3 {
+    padding: 40px 20px;
+  }
   .grid-container {
     grid-template-columns: 1fr;
   }

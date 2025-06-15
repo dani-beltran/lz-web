@@ -82,7 +82,7 @@ export default {
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
     .section-1 {
         background-size: auto 50%;
         background-position: bottom right;
