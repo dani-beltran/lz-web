@@ -4,7 +4,7 @@
     alt="YouTube" 
     :width="size" 
     :height="size"
-    class="custom-icon"
+    :class="['custom-icon', { 'inverted': inverted }]"
   />
 </template>
 
@@ -17,6 +17,10 @@ export default {
     size: {
       type: [Number, String],
       default: 20
+    },
+    inverted: {
+      type: Boolean,
+      default: true
     }
   },
   data() {
@@ -29,12 +33,19 @@ export default {
 
 <style scoped>
 .custom-icon {
-  filter: brightness(0) invert(1);
   transition: all 0.3s ease;
 }
 
-.custom-icon:hover {
+.custom-icon.inverted {
+  filter: brightness(0) invert(1);
+}
+
+.custom-icon.inverted:hover {
   filter: brightness(0) invert(1) sepia(1) saturate(2) hue-rotate(200deg);
+}
+
+.custom-icon:not(.inverted):hover {
+  filter: sepia(1) saturate(2) hue-rotate(200deg);
 }
 </style>
 

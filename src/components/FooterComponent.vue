@@ -46,14 +46,14 @@
       <p>&copy; 2025 Herragen AG. All rights reserved.</p>
       <div class="social-links">
         <a href="https://x.com/layerz_com" aria-label="Twitter">
-          <TwitterIcon :size="20" />
+          <TwitterIcon :size="20" inverted />
         </a>
         <a href="https://www.linkedin.com/company/layerz-digitalexperience/" aria-label="LinkedIn">
-          <LinkedinIcon :size="20" />
+          <LinkedinIcon :size="20" inverted />
         </a>
         <a href="https://www.youtube.com/@LayerZ-t6p" aria-label="YouTube">
           <!-- Making Youtube icon match its height with other icons resizing by its ratio -->
-          <YouTubeIcon :size="Math.ceil(20 * (4 / 3))" />
+          <YouTubeIcon :size="Math.ceil(20 * (4 / 3))" inverted />
         </a>
       </div>
     </div>
