@@ -12,7 +12,7 @@
             alt="Team Member 1"
             class="item-image"
           />
-          <div>
+          <div class="text-container">
             <h3>Mike Rogers</h3>
             <p>CEO and Co-founder</p>
             <a href="https://www.linkedin.com/in/mike-a-rogers/" aria-label="LinkedIn">
@@ -26,7 +26,7 @@
             alt="Team Member 2"
             class="item-image"
           />
-          <div>
+          <div class="text-container">
             <h3>Marc Lamarche</h3>
             <p>CMO and Co-founder</p>
             <a href="https://www.linkedin.com/in/marclamarche/" aria-label="LinkedIn">
@@ -40,7 +40,7 @@
             alt="Team Member 3"
             class="item-image"
           />
-          <div>
+          <div class="text-container">
             <h3>Daniel Beltran</h3>
             <p>CTO and Co-founder</p>
             <a href="https://www.linkedin.com/in/daniellidonbeltran/" aria-label="LinkedIn">
@@ -93,6 +93,7 @@ export default {
   gap: 180px;
   width: 100%;
 }
+
 .grid-item {
   border-radius: 8px;
   padding: 20px;
@@ -107,6 +108,10 @@ export default {
   margin-bottom: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border: 2px solid #e0e0e0;
+}
+
+.text-container p {
+  color: #6b7280; /* Gray */
 }
 
 .linkedin-icon {
