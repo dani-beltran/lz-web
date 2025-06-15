@@ -79,12 +79,12 @@ export default {
 .footer {
     background-color: #1f2937; /* Dark Gray */
     color: #f9fafb;
-    padding: 40px 40px;
+    padding: 40px 80px;
     width: 100%;
 }
 
 .footer-content {
-    max-width: 1200px;
+    max-width: 1600px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -117,7 +117,7 @@ export default {
 }
 
 .footer-bottom {
-    max-width: 1200px;
+    max-width: 1600px;
     margin: 30px auto 0;
     padding-top: 20px;
     border-top: 1px solid #374151;
@@ -148,6 +148,17 @@ export default {
 
 .social-links a:hover {
     color: #ffffff;
+}
+
+@media screen and (max-width: 1280px) {
+    .footer {
+        padding: 40px 40px;
+    }
+    .footer-content {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+    }
+  
 }
 
 /* Responsive adjustments for this component */
