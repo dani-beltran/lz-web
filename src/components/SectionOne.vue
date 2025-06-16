@@ -8,7 +8,9 @@
         :interval="8000"
         @slide-change="onSlideChange"
       />
-      <button class="get-started-btn" @click="redirectToDashboard">Get Started</button>
+      <button class="get-started-btn" @click="redirectToDashboard">
+        Get Started
+      </button>
     </div>
   </section>
 </template>
@@ -36,7 +38,7 @@ export default {
       // Handle slide change if needed
     },
     redirectToDashboard() {
-      window.open('https://dashboard.layerz.com/sign-up', '_blank');
+      window.open("https://dashboard.layerz.com/sign-up", "_blank");
     },
   },
 };
@@ -138,17 +140,19 @@ export default {
     top: 15px;
     right: 20px;
   }
-
 }
 
 @media screen and (max-width: 480px) {
-
   .get-started-btn {
     top: 100vh;
     transform: translateY(-100%);
     margin-top: -20px;
     padding: 8px 16px;
     font-size: 0.875rem;
+  }
+
+  .get-started-btn:hover {
+    transform: translateY(-100%);
   }
 }
 </style>
