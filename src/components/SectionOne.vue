@@ -144,12 +144,11 @@ export default {
 @media screen and (max-width: 480px) {
 
   .get-started-btn {
-    top: 150px;
-    left: 20px;
-    right: auto;
+    top: 100vh;
+    transform: translateY(-100%);
+    margin-top: -20px;
     padding: 8px 16px;
     font-size: 0.875rem;
   }
-  
 }
 </style>
