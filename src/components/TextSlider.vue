@@ -11,6 +11,18 @@
         <h1 v-html="slide"></h1>
       </div>
     </div>
+    
+    <!-- Dots Navigation -->
+    <div class="dots-container">
+      <button 
+        v-for="(slide, index) in slides"
+        :key="`dot-${index}`"
+        class="dot"
+        :class="{ 'active': currentSlide === index }"
+        @click="goToSlide(index)"
+        :aria-label="`Go to slide ${index + 1}`"
+      ></button>
+    </div>
   </div>
 </template>
 
@@ -82,6 +94,12 @@ export default {
       if (index >= 0 && index < this.slides.length) {
         this.currentSlide = index;
         this.$emit('slide-change', this.currentSlide);
+        
+        // Restart auto-play timer when user manually navigates
+        if (this.autoPlay) {
+          this.stopSlider();
+          this.startSlider();
+        }
       }
     },
     prevSlide() {
@@ -97,6 +115,7 @@ export default {
     width: 100%;
     overflow: hidden;
     position: relative;
+    padding: 10px 0;
 }
 
 .slider-wrapper {
@@ -114,16 +133,68 @@ export default {
     width: 100%;
 }
 
+/* Dots Navigation */
+.dots-container {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 40px;
+  padding: 0 80px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.dot:hover {
+  border-color: rgba(255, 255, 255, 0.8);
+  transform: scale(1.1);
+}
+
+.dot.active {
+  background-color: #ffffff;
+  border-color: #ffffff;
+  transform: scale(1.2);
+}
+
+.dot:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+}
+
 /* Responsive adjustments */
 @media (max-width: 1280px) {
     .slide {
         padding: 0 40px;
+    }
+
+    .dots-container {
+        padding: 0 40px;
+        margin-top: 30px;
     }
 }
 
 @media (max-width: 768px) {
     .slide {
         padding: 0 20px;
+    }
+
+    .dots-container {
+        padding: 0 20px;
+        margin-top: 20px;
+        gap: 10px;
+    }
+    
+    .dot {
+        width: 10px;
+        height: 10px;
     }
 }
 </style>
