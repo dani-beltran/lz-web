@@ -2,12 +2,13 @@
   <section class="section section-3" id="section-3">
     <div class="grid-container">
       <div class="grid-item">
-        <Sparkles class="icon"></Sparkles>
+        <Rocket class="icon"></Rocket>
         <div>
-          <h2 class="highlight">Improve UX</h2>
-          <p>Timely & relevant actions that feel natural</p>
+          <h2 class="highlight">Boost conversions</h2>
+          <p>Engage customers at the right moment</p>
         </div>
       </div>
+      
       <div class="grid-item">
         <HeartHandshake class="icon"></HeartHandshake>
         <div>
@@ -23,10 +24,10 @@
         </div>
       </div>
       <div class="grid-item">
-        <Rocket class="icon"></Rocket>
+        <Sparkles class="icon"></Sparkles>
         <div>
-          <h2 class="highlight">Boost conversions</h2>
-          <p>Engage customers at the right moment</p>
+          <h2 class="highlight">Improve UX</h2>
+          <p>Timely & relevant actions that feel natural</p>
         </div>
       </div>
       <div class="grid-item">
