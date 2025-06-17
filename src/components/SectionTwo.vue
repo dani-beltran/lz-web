@@ -335,7 +335,7 @@ export default {
   height: 100%;
   background-repeat: no-repeat;
   background-size: contain;
-  background-position: left center;
+  background-position: center;
   z-index: 0;
 }
 
