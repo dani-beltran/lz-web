@@ -52,6 +52,9 @@
       </div>
     </div>
 
+    <!-- Separator Line -->
+    <div class="section-separator"></div>
+
     <!-- From subtle interest to meaningful conversation -->
     <div class="subsection">
       <div class="subsection-header">
@@ -65,7 +68,7 @@
           <div class="content-header">
             <Bot class="section-icon highlight" />
             <div class="text-container">
-              <h2>Meaningful conversations</h2>
+              <h3>Meaningful conversations</h3>
               <p>
                 <span class="highlight">AI agents</span> proactively refine user
                 interest through
@@ -85,6 +88,9 @@
       </div>
     </div>
 
+    <!-- Separator Line -->
+    <div class="section-separator"></div>
+
     <!-- Spot what others ignore -->
     <div class="subsection">
       <div class="subsection-header">
@@ -98,7 +104,7 @@
           <div class="content-header">
             <DoorOpen class="section-icon highlight" />
             <div class="text-container">
-              <h2>Exit intent detection</h2>
+              <h3>Exit intent detection</h3>
               <p>Triggered when an engaged user is about to leave a page.</p>
             </div>
           </div>
@@ -115,7 +121,7 @@
           <div class="content-header">
             <MessageCircleQuestion class="section-icon highlight" />
             <div class="text-container">
-              <h2>Hesitation detection</h2>
+              <h3>Hesitation detection</h3>
               <p>
                 Triggered by hesitation, like a salesperson stepping in to help.
               </p>
@@ -132,6 +138,9 @@
       </div>
     </div>
 
+    <!-- Separator Line -->
+    <div class="section-separator"></div>
+
     <!-- Know what they need, before they ask -->
     <div class="subsection">
       <div class="subsection-header">
@@ -145,7 +154,7 @@
           <div class="content-header">
             <Angry class="section-icon highlight" />
             <div class="text-container">
-              <h2>Frustration detection</h2>
+              <h3>Frustration detection</h3>
               <p>
                 Triggered by user frustration, behavioral loops or signs of
                 friction, then we
@@ -167,7 +176,7 @@
           <div class="content-header">
             <Coins class="section-icon highlight" />
             <div class="text-container">
-              <h2>Contextual Cross-sell</h2>
+              <h3>Contextual Cross-sell</h3>
               <p>
                 Triggered when user behaviour suggests a likely combo or need.
               </p>
@@ -184,6 +193,9 @@
       </div>
     </div>
 
+    <!-- Separator Line -->
+    <div class="section-separator"></div>
+
     <!-- Take control of your UX, no code -->
     <div class="subsection">
       <div class="subsection-header">
@@ -197,7 +209,7 @@
           <div class="content-header">
             <MapPin class="section-icon highlight" />
             <div class="text-container">
-              <h2>Smart product highlight</h2>
+              <h3>Smart product highlight</h3>
               <p>
                 From intent detection to
                 <span class="highlight">UX action</span>.
@@ -367,6 +379,15 @@ export default {
   width: 40px;
   height: 40px;
   flex-shrink: 0;
+}
+
+.section-separator {
+  width: 100%;
+  max-width: 800px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #270972, transparent);
+  margin: 60px auto;
+  opacity: 0.3;
 }
 
 @media (max-width: 1280px) {
