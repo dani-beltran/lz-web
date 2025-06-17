@@ -1,5 +1,12 @@
 <template>
-  <div class="slider-container">
+  <div class="slider-container"
+       @touchstart="handleTouchStart"
+       @touchmove="handleTouchMove"
+       @touchend="handleTouchEnd"
+       @mousedown="handleMouseDown"
+       @mousemove="handleMouseMove"
+       @mouseup="handleMouseUp"
+       @mouseleave="handleMouseUp">
     <div class="slider-wrapper" :style="{ 
       transform: `translateX(-${currentSlide * (100 / slides.length)}%)`,
       width: `${slides.length * 100}%`
@@ -27,6 +34,8 @@
 </template>
 
 <script>
+import { useSwipe } from '@/composables/useSwipe.js'
+
 export default {
   name: 'TextSlider',
   props: {
@@ -50,6 +59,16 @@ export default {
       slideInterval: null
     }
   },
+  setup(props) {
+    // Initialize swipe functionality
+    const swipeHandlers = useSwipe({
+      threshold: 50
+    })
+
+    return {
+      ...swipeHandlers
+    }
+  },
   computed: {
     slideWidth() {
       return `${100 / this.slides.length}%`;
@@ -59,6 +78,24 @@ export default {
     if (this.autoPlay) {
       this.startSlider();
     }
+    
+    // Update swipe callbacks after component is mounted
+    this.updateCallbacks({
+      onSwipeLeft: () => {
+        this.nextSlide();
+        if (this.autoPlay) {
+          this.stopSlider();
+          this.startSlider();
+        }
+      },
+      onSwipeRight: () => {
+        this.prevSlide();
+        if (this.autoPlay) {
+          this.stopSlider();
+          this.startSlider();
+        }
+      }
+    });
   },
   beforeUnmount() {
     this.stopSlider();
@@ -119,13 +156,17 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 .slider-wrapper {
     display: flex;
     flex: 1;
     align-items: center;
-    transition: transform 2.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: transform 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .slide {
