@@ -155,4 +155,18 @@ export default {
     transform: translateY(-100%);
   }
 }
+
+@media screen and (max-height: 480px) {
+  .logo {
+    height: 50px;
+  }
+
+  .slider-content {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 15px;
+  }
+  
+}
 </style>
