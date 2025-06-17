@@ -1,152 +1,234 @@
 <template>
   <section class="section section-2" id="section-2">
-    <div class="grid-container">
-      <div class="grid-item">
-        <div class="content-header">
-          <Eye class="section-icon highlight" />
-          <div class="text-container">
-            <h2>Behavioral insights</h2>
-            <p>
-              Understand user interest through <span class="highlight">real-time analysis</span> of behavioral
-              signals.
-            </p>
+    <!-- Make silent signals speak, like in the real world -->
+    <div class="subsection">
+      <div class="subsection-header">
+        <h2 class="title">Make silent signals speak, like in the real world</h2>
+        <h3 class="subtitle">
+          Trigger at the right time, with the right message
+        </h3>
+      </div>
+      <div class="grid-container">
+        <div class="grid-item">
+          <div class="content-header">
+            <Eye class="section-icon highlight" />
+            <div class="text-container">
+              <h3>Behavioral insights</h3>
+              <p>
+                Understand user interest through
+                <span class="highlight">real-time analysis</span> of behavioral
+                signals.
+              </p>
+            </div>
+          </div>
+          <div class="image-container purple">
+            <img
+              src="@/assets/imgs/journey-behavioral-mobile-layerz.png"
+              alt="Journey Behavioral Mobile LayerZ"
+              class="item-image"
+            />
           </div>
         </div>
-        <div class="image-container purple">
-          <img
-            src="@/assets/imgs/journey-behavioral-mobile-layerz.png"
-            alt="Journey Behavioral Mobile LayerZ"
-            class="item-image"
-          />
+        <div class="grid-item">
+          <div class="content-header">
+            <MessagesSquare class="section-icon highlight" />
+            <div class="text-container">
+              <h3>Trigger smart interactions</h3>
+              <p>
+                Smart, contextual interactions at the
+                <span class="highlight">peak of intent</span>.
+              </p>
+            </div>
+          </div>
+
+          <div class="image-container pink">
+            <img
+              src="@/assets/imgs/nolita-chair-screenshot.png"
+              alt="Modal Review User LayerZ"
+              class="item-image"
+            />
+          </div>
         </div>
       </div>
-      <div class="grid-item">
-        <div class="content-header">
-          <MessagesSquare class="section-icon highlight" />
-          <div class="text-container">
-            <h2>Trigger smart interactions</h2>
-            <p>Smart, contextual interactions at the <span class="highlight">peak of intent</span>.</p>
+    </div>
+
+    <!-- From subtle interest to meaningful conversation -->
+    <div class="subsection">
+      <div class="subsection-header">
+        <h2 class="title">From subtle interest to meaningful conversation</h2>
+        <h3 class="subtitle">
+          Refining user interest, naturally, like a real salesperson would
+        </h3>
+      </div>
+      <div class="grid-container">
+        <div class="grid-item">
+          <div class="content-header">
+            <Bot class="section-icon highlight" />
+            <div class="text-container">
+              <h2>Meaningful conversations</h2>
+              <p>
+                <span class="highlight">AI agents</span> proactively refine user
+                interest through
+                <span class="highlight">human-like interactions</span> on the
+                right context, at the right time.
+              </p>
+            </div>
+          </div>
+          <div class="image-container pink">
+            <img
+              src="@/assets/imgs/ai-agent-layerz-modal-chatbot.png"
+              alt="Modal Review User LayerZ"
+              class="item-image"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Spot what others ignore -->
+    <div class="subsection">
+      <div class="subsection-header">
+        <h2 class="title">Spot what others ignore</h2>
+        <h3 class="subtitle">
+          Subtle signs are often overlooked. Capture them to unlock dialogue
+        </h3>
+      </div>
+      <div class="grid-container">
+        <div class="grid-item">
+          <div class="content-header">
+            <DoorOpen class="section-icon highlight" />
+            <div class="text-container">
+              <h2>Exit intent detection</h2>
+              <p>Triggered when an engaged user is about to leave a page.</p>
+            </div>
+          </div>
+          <div class="image-container purple">
+            <img
+              src="@/assets/imgs/exit-intent-detection-modal-layerz.png"
+              alt="Modal Review User LayerZ"
+              class="item-image"
+            />
           </div>
         </div>
 
-        <div class="image-container pink">
-          <img
-            src="@/assets/imgs/nolita-chair-screenshot.png"
-            alt="Modal Review User LayerZ"
-            class="item-image"
-          />
+        <div class="grid-item">
+          <div class="content-header">
+            <MessageCircleQuestion class="section-icon highlight" />
+            <div class="text-container">
+              <h2>Hesitation detection</h2>
+              <p>
+                Triggered by hesitation, like a salesperson stepping in to help.
+              </p>
+            </div>
+          </div>
+          <div class="image-container pink">
+            <img
+              src="@/assets/imgs/Intent-clarification-hesitation-behavioral-modal.png"
+              alt="Modal Review User LayerZ"
+              class="item-image"
+            />
+          </div>
         </div>
       </div>
-      <div class="grid-item">
-        <div class="content-header">
-          <Bot class="section-icon highlight" />
-          <div class="text-container">
-            <h2>Meaningful conversations</h2>
-            <p><span class="highlight">AI agents</span> proactively refine user interest through <span class="highlight">human-like interactions</span> on the right context, at the right time.</p>
+    </div>
+
+    <!-- Know what they need, before they ask -->
+    <div class="subsection">
+      <div class="subsection-header">
+        <h2 class="title">Know what they need, before they ask</h2>
+        <h3 class="subtitle">
+          React to behavioral cues to guide, reassure or recommend
+        </h3>
+      </div>
+      <div class="grid-container">
+        <div class="grid-item">
+          <div class="content-header">
+            <Angry class="section-icon highlight" />
+            <div class="text-container">
+              <h2>Frustration detection</h2>
+              <p>
+                Triggered by user frustration, behavioral loops or signs of
+                friction, then we
+                <span class="highlight">offer contextual help</span>.
+              </p>
+            </div>
+          </div>
+
+          <div class="image-container purple">
+            <img
+              src="@/assets/imgs/frustration-detection-behavioral-layerz.png"
+              alt="Modal Review User LayerZ"
+              class="item-image"
+            />
           </div>
         </div>
 
-        <div class="image-container pink">
-          <img
-            src="@/assets/imgs/ai-agent-layerz-modal-chatbot.png"
-            alt="Modal Review User LayerZ"
-            class="item-image"
-          />
-        </div>
-      </div>
-      <div class="grid-item">
-        <div class="content-header">
-          <DoorOpen class="section-icon highlight" />
-          <div class="text-container">
-            <h2>Exit intent detection</h2>
-            <p>Triggered when an engaged user is about to leave a page.</p>
+        <div class="grid-item">
+          <div class="content-header">
+            <Coins class="section-icon highlight" />
+            <div class="text-container">
+              <h2>Contextual Cross-sell</h2>
+              <p>
+                Triggered when user behaviour suggests a likely combo or need.
+              </p>
+            </div>
+          </div>
+          <div class="image-container pink">
+            <img
+              src="@/assets/imgs/personalization-based-on-behavior.png"
+              alt="Modal Review User LayerZ"
+              class="item-image"
+            />
           </div>
         </div>
-
-        <div class="image-container purple">
-          <img
-            src="@/assets/imgs/exit-intent-detection-modal-layerz.png"
-            alt="Modal Review User LayerZ"
-            class="item-image"
-          />
-        </div>
       </div>
-      <div class="grid-item">
-        <div class="content-header">
-          <Angry class="section-icon highlight" />
-          <div class="text-container">
-            <h2>Frustration detection</h2>
-            <p>Triggered by user frustration, behavioral loops or signs of friction, then we <span class="highlight">offer contextual help</span>.</p>
+    </div>
+
+    <!-- Take control of your UX, no code -->
+    <div class="subsection">
+      <div class="subsection-header">
+        <h2 class="title">Take control of your UX, no code.</h2>
+        <h3 class="subtitle">
+          Deploy the right nudge or tool, anywhere over your website, in minutes
+        </h3>
+      </div>
+      <div class="grid-container">
+        <div class="grid-item">
+          <div class="content-header">
+            <MapPin class="section-icon highlight" />
+            <div class="text-container">
+              <h2>Smart product highlight</h2>
+              <p>
+                From intent detection to
+                <span class="highlight">UX action</span>.
+              </p>
+            </div>
+          </div>
+
+          <div class="image-container purple">
+            <img
+              src="@/assets/imgs/next-gen-dxp-recommendation-targeting.png"
+              alt="Modal Review User LayerZ"
+              class="item-image"
+            />
           </div>
         </div>
-
-        <div class="image-container purple">
-          <img
-            src="@/assets/imgs/frustration-detection-behavioral-layerz.png"
-            alt="Modal Review User LayerZ"
-            class="item-image"
-          />
-        </div>
       </div>
-       <div class="grid-item">
-        <div class="content-header">
-          <MessageCircleQuestion class="section-icon highlight" />
-          <div class="text-container">
-            <h2>Hesitation detection</h2>
-            <p>Triggered by hesitation, like a salesperson stepping in to help.</p>
-          </div>
-        </div>
-
-        <div class="image-container pink">
-          <img
-            src="@/assets/imgs/Intent-clarification-hesitation-behavioral-modal.png"
-            alt="Modal Review User LayerZ"
-            class="item-image"
-          />
-        </div>
-      </div>
-      <div class="grid-item">
-        <div class="content-header">
-          <Coins class="section-icon highlight" />
-          <div class="text-container">
-            <h2>Contextual Cross-sell</h2>
-            <p>Triggered when user behaviour suggests a likely combo or need.</p>
-          </div>
-        </div>
-
-        <div class="image-container pink">
-          <img
-            src="@/assets/imgs/personalization-based-on-behavior.png"
-            alt="Modal Review User LayerZ"
-            class="item-image"
-          />
-        </div>
-      </div>
-      
-      <div class="grid-item">
-        <div class="content-header">
-          <MapPin class="section-icon highlight" />
-          <div class="text-container">
-            <h2>Smart product highlight</h2>
-            <p>From intent detection to <span class="highlight">UX action</span>.</p>
-          </div>
-        </div>
-
-        <div class="image-container purple">
-          <img
-            src="@/assets/imgs/next-gen-dxp-recommendation-targeting.png"
-            alt="Modal Review User LayerZ"
-            class="item-image"
-          />
-        </div>
-      </div>
-     
     </div>
   </section>
 </template>
 
 <script>
-import { Eye, MessagesSquare, Bot, DoorOpen, Angry, Coins, MapPin, MessageCircleQuestion } from "lucide-vue-next";
+import {
+  Eye,
+  MessagesSquare,
+  Bot,
+  DoorOpen,
+  Angry,
+  Coins,
+  MapPin,
+  MessageCircleQuestion,
+} from "lucide-vue-next";
 
 export default {
   name: "SectionTwo",
@@ -158,7 +240,7 @@ export default {
     Angry,
     Coins,
     MapPin,
-    MessageCircleQuestion
+    MessageCircleQuestion,
   },
 };
 </script>
@@ -167,7 +249,7 @@ export default {
 .section {
   width: 100vw;
   position: relative;
-  padding: 60px 80px;
+  padding: 80px 80px;
 }
 
 .section-2 {
@@ -176,13 +258,35 @@ export default {
   overflow: hidden;
 }
 
+.subsection {
+  max-width: 1600px;
+  width: 100%;
+  margin: auto;
+  margin-bottom: 80px;
+}
+
+.subsection-header {
+  text-align: center;
+  margin-bottom: 60px;
+  color: #270972; /* Indigo */
+}
+
+.title {
+  color: #270972; /* Indigo */
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.subtitle {
+  text-align: center;
+}
+
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
   row-gap: 80px;
   width: 100%;
-  max-width: 1600px;
   margin: auto;
 }
 
@@ -235,6 +339,10 @@ export default {
   width: 100%;
 }
 
+.text-container h3 {
+  font-weight: bold;
+}
+
 .item-image {
   width: auto;
   height: auto;
@@ -252,8 +360,8 @@ export default {
 }
 
 .section-icon {
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
   flex-shrink: 0;
 }
 
@@ -271,16 +379,15 @@ export default {
   .section {
     padding: 40px 20px;
   }
-  
+
   .grid-container {
     grid-template-columns: 1fr;
     row-gap: 60px;
   }
 
   .section-icon {
-    width: 36px;
-    height: 36px;
+    width: 30px;
+    height: 30px;
   }
-  
 }
 </style>
