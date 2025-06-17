@@ -192,7 +192,7 @@
           Deploy the right nudge or tool, anywhere over your website, in minutes
         </h3>
       </div>
-      <div class="grid-container">
+      <div class="grid-container one-column">
         <div class="grid-item">
           <div class="content-header">
             <MapPin class="section-icon highlight" />
@@ -288,6 +288,10 @@ export default {
   row-gap: 80px;
   width: 100%;
   margin: auto;
+}
+
+.grid-container.one-column {
+  grid-template-columns: 1fr;
 }
 
 .grid-item {
