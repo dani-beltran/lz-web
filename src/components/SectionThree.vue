@@ -3,44 +3,49 @@
     <div class="grid-container">
       <div class="grid-item">
         <Rocket class="icon"></Rocket>
-        <div>
-          <h2 class="highlight">Boost conversions</h2>
+        <div class="feature-text">
+          <h3 class="highlight">Boost conversions</h3>
           <p>Engage customers at the right moment</p>
         </div>
       </div>
       
       <div class="grid-item">
         <HeartHandshake class="icon"></HeartHandshake>
-        <div>
-          <h2 class="highlight">Build customer intimacy</h2>
+        <div class="feature-text">
+          <h3 class="highlight">Build customer intimacy</h3>
           <p>React to behaviour & preferences in real time</p>
         </div>
       </div>
+
       <div class="grid-item">
         <Brain class="icon"></Brain>
-        <div>
-          <h2 class="highlight">Understand intent</h2>
+        <div class="feature-text">
+          <h3 class="highlight">Understand intent</h3>
           <p>Detect subtle cues and respond appropriately</p>
         </div>
       </div>
+
+      
       <div class="grid-item">
         <Sparkles class="icon"></Sparkles>
-        <div>
-          <h2 class="highlight">Improve UX</h2>
+        <div class="feature-text">
+          <h3 class="highlight">Improve UX</h3>
           <p>Timely & relevant actions that feel natural</p>
         </div>
       </div>
+
       <div class="grid-item">
-        <ImageUpscale class="icon"></ImageUpscale>
-        <div>
-          <h2 class="highlight">No-code UX activation</h2>
+        <Images class="icon"></Images>
+        <div class="feature-text">
+          <h3 class="highlight">No-code UX activation</h3>
           <p>Empower teams to create experiences without coding</p>
         </div>
       </div>
+      
       <div class="grid-item">
         <Unplug class="icon"></Unplug>
-        <div>
-          <h2 class="highlight">Open by design</h2>
+        <div class="feature-text">
+          <h3 class="highlight">Open by design</h3>
           <p>Connect any CRM, CDP, LLM and more</p>
         </div>
       </div>
@@ -49,7 +54,7 @@
 </template>
 
 <script>
-import { Rocket, Sparkles, Brain, Unplug, HeartHandshake, WandSparkles, ImageUpscale } from "lucide-vue-next";
+import { Rocket, Sparkles, Brain, Unplug, HeartHandshake, Images } from "lucide-vue-next";
 
 export default {
   name: "SectionThree",
@@ -59,7 +64,7 @@ export default {
     HeartHandshake,
     Brain,
     Unplug,
-    ImageUpscale
+    Images
   },
 };
 </script>
@@ -78,10 +83,15 @@ export default {
   padding: 160px 80px;
 }
 
+.section-3 h3 {
+  font-weight: bold;
+}
+
 .grid-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 40px;
+  row-gap: 80px;
   width: 100%;
   max-width: 1600px;
 }
@@ -94,9 +104,30 @@ export default {
   gap: 20px;
 }
 
+.feature-text h3 {
+  line-height: 1.2;
+  height: 2.4em; /* 2 lines */
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.feature-text p {
+  line-height: 1.5;
+  height: 3em; /* 2 lines */
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
 .icon {
   width: 100px;
   height: 100px;
+  min-width: 80px;
   color: #ffffff; /* White */
 }
 
@@ -104,19 +135,32 @@ export default {
   .section-3 {
     padding: 80px 40px;
   }
+  
+}
+
+@media screen and (max-width: 1024px) {
+  .feature-text h3 {
+    height: 1.2em; /* 1 lines */
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+  } 
 }
 
 @media screen and (max-width: 768px) {
   .section-3 {
     padding: 60px 20px;
   }
+
   .grid-container {
     grid-template-columns: 1fr;
+    row-gap: 40px;
   }
+
   .icon {
     width: 80px;
     height: 80px;
+    min-width: 80px;
   }
-  
 }
+
 </style>
