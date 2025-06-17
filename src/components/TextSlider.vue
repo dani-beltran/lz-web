@@ -113,13 +113,18 @@ export default {
 <style scoped>
 .slider-container {
     width: 100%;
+    height: 100%;
     overflow: hidden;
     position: relative;
-    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .slider-wrapper {
     display: flex;
+    flex: 1;
+    align-items: center;
     transition: transform 2.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
@@ -131,6 +136,7 @@ export default {
     text-align: left;
     padding: 0 80px;
     width: 100%;
+    height: 100%;
 }
 
 /* Dots Navigation */
@@ -138,8 +144,8 @@ export default {
   display: flex;
   justify-content: center;
   gap: 12px;
-  margin-top: 40px;
-  padding: 0 80px;
+  padding: 40px 80px;
+  flex-shrink: 0;
 }
 
 .dot {
@@ -176,7 +182,7 @@ export default {
     }
 
     .dots-container {
-        padding: 0 40px;
+        padding: 20px 40px;
         margin-top: 30px;
     }
 }
@@ -187,8 +193,6 @@ export default {
     }
 
     .dots-container {
-        padding: 0 20px;
-        margin-top: 20px;
         gap: 10px;
     }
     

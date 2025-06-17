@@ -1,6 +1,19 @@
 <template>
   <section class="section section-1" id="section-1">
-    <img src="@/assets/logo/layerz-logo.png" alt="LayerZ Logo" class="logo" />
+    <div class="header">
+      <div class="logo-container">
+        <img
+          src="@/assets/logo/layerz-logo.png"
+          alt="LayerZ Logo"
+          class="logo"
+        />
+      </div>
+      <div class="button-container">
+        <button class="get-started-btn" @click="redirectToDashboard">
+          Get Started
+        </button>
+      </div>
+    </div>
     <div class="slider-content">
       <TextSlider
         class="text-slider"
@@ -8,9 +21,6 @@
         :interval="8000"
         @slide-change="onSlideChange"
       />
-      <button class="get-started-btn" @click="redirectToDashboard">
-        Get Started
-      </button>
     </div>
   </section>
 </template>
@@ -48,6 +58,8 @@ export default {
 .section {
   width: 100vw;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .section-1 {
@@ -60,26 +72,35 @@ export default {
 
 .slider-content {
   width: 100%;
-  height: 100%;
+  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
 }
 
-.logo {
-  position: absolute;
-  top: 60px;
-  left: 80px;
-  height: 150px;
-  width: auto;
+.logo-container {
+  margin: 60px 80px 0 80px;
   z-index: 10;
 }
 
+.logo {
+  height: 124px;
+  width: auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.button-container {
+  margin: 60px 80px 0 0;
+}
+
 .get-started-btn {
-  position: absolute;
-  top: 60px;
-  right: 80px;
   background-color: #ffffff;
   color: #270972;
   border: none;
@@ -111,15 +132,16 @@ export default {
     background-position-x: calc(100% + 80px);
   }
 
-  .logo {
-    top: 30px;
-    left: 40px;
-    height: 150px;
+  .logo-container {
+    margin: 30px 40px 0 40px;
   }
 
-  .get-started-btn {
-    top: 30px;
-    right: 40px;
+  .logo {
+    height: 92px;
+  }
+
+  .button-container {
+    margin: 30px 40px 0 0;
   }
 }
 
@@ -130,43 +152,30 @@ export default {
     background-position-x: calc(100% + 40px);
   }
 
-  .logo {
-    top: 15px;
-    left: 20px;
-    height: 100px;
+  .logo-container {
+    margin: 15px 20px 0 20px;
   }
 
-  .get-started-btn {
-    top: 15px;
-    right: 20px;
+  .logo {
+    height: 92px;
+  }
+
+  .button-container {
+    margin: 15px 20px 0 20px;
   }
 }
 
-@media screen and (max-width: 480px) {
-  .get-started-btn {
-    top: 100vh;
-    transform: translateY(-100%);
-    margin-top: -20px;
-    padding: 8px 16px;
-    font-size: 0.875rem;
-  }
-
-  .get-started-btn:hover {
-    transform: translateY(-100%);
-  }
-}
-
-@media screen and (max-height: 480px) {
+@media (max-width: 480px) {
   .logo {
-    height: 50px;
+    height: 66px;
   }
-
-  .slider-content {
+  .header { 
     flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    padding-bottom: 15px;
+    align-items: start;
   }
-  
+
+  .button-container {
+    display: none;
+  }
 }
 </style>
