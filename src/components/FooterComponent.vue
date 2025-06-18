@@ -57,19 +57,15 @@
         </a>
       </div>
     </div>
-    
-    <!-- Modal Component -->
-    <Modal :isVisible="showModal" @close="showModal = false">
-      <ContactForm @submit="handleFormSubmit" @cancel="showModal = false" />
-    </Modal>
   </footer>
 </template>
 
 <script>
+import { onBeforeUnmount } from 'vue'
+import { useModal } from '@/composables/useModal.js'
 import TwitterIcon from './icons/TwitterIcon.vue'
 import LinkedinIcon from './icons/LinkedinIcon.vue'
 import YouTubeIcon from './icons/YouTubeIcon.vue'
-import Modal from './Modal.vue'
 import ContactForm from './ContactForm.vue'
 
 export default {
@@ -77,24 +73,29 @@ export default {
   components: {
     TwitterIcon,
     LinkedinIcon,
-    YouTubeIcon,
-    Modal,
-    ContactForm
+    YouTubeIcon
   },
-  data() {
-    return {
-      showModal: false,
-    }
-  },
-  methods: {
-    openModal() {
-      this.showModal = true
-    },
-    handleFormSubmit(formData) {
+  setup() {
+    const { openModal, closeModal, cleanup } = useModal()
+
+    const handleFormSubmit = (formData) => {
       console.log('Form data received in footer:', formData)
-      // Here you could send the data to your API
-      // For now, just close the modal
-      this.showModal = false
+    }
+
+    const openContactModal = () => {
+      openModal(ContactForm, {
+        onSubmit: handleFormSubmit
+      })
+    }
+
+    // Cleanup when component unmounts
+    onBeforeUnmount(() => {
+      cleanup()
+    })
+
+    return {
+      openModal: openContactModal,
+      closeModal
     }
   }
 }
@@ -114,6 +115,12 @@ export default {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 40px;
+}
+
+/* Hidden until links are implemented */
+/* TODO: Implement footer links */
+.footer-content .footer-section {
+    display: none;
 }
 
 .footer-section h4 {
@@ -145,7 +152,8 @@ export default {
     max-width: 1600px;
     margin: 30px auto 0;
     padding-top: 20px;
-    border-top: 1px solid #374151;
+    /* Hidden while not footer links */
+    /* TODO: Implement footer links */
     text-align: center;
     color: #9ca3af;
 }
