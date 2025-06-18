@@ -7,9 +7,12 @@ export function useSwipe(callbacks = {}) {
 
   // Reactive state
   const touchStartX = ref(0)
+  const touchStartY = ref(0)
   const touchEndX = ref(0)
+  const touchEndY = ref(0)
   const isDragging = ref(false)
   const isMouseDown = ref(false)
+  const isHorizontalSwipe = ref(false)
 
   // Store callbacks
   let onSwipeLeft = callbacks.onSwipeLeft || (() => {})
@@ -28,30 +31,54 @@ export function useSwipe(callbacks = {}) {
   // Touch event handlers
   const handleTouchStart = (event) => {
     touchStartX.value = event.touches[0].clientX
+    touchStartY.value = event.touches[0].clientY
     isDragging.value = true
+    isHorizontalSwipe.value = false
     onSwipeStart()
   }
 
   const handleTouchMove = (event) => {
     if (!isDragging.value) return
-    // Prevent default scrolling behavior
-    event.preventDefault()
+    
+    const currentX = event.touches[0].clientX
+    const currentY = event.touches[0].clientY
+    const deltaX = Math.abs(currentX - touchStartX.value)
+    const deltaY = Math.abs(currentY - touchStartY.value)
+    
+    // Determine if this is a horizontal or vertical swipe
+    if (deltaX > 10 || deltaY > 10) { // Only decide after meaningful movement
+      isHorizontalSwipe.value = deltaX > deltaY
+      
+      // Only prevent default behavior for horizontal swipes
+      if (isHorizontalSwipe.value) {
+        event.preventDefault()
+      }
+    }
   }
 
   const handleTouchEnd = (event) => {
     if (!isDragging.value) return
     
     touchEndX.value = event.changedTouches[0].clientX
-    handleSwipe()
+    touchEndY.value = event.changedTouches[0].clientY
+    
+    // Only process swipe if it was primarily horizontal
+    if (isHorizontalSwipe.value) {
+      handleSwipe()
+    }
+    
     isDragging.value = false
+    isHorizontalSwipe.value = false
     onSwipeEnd()
   }
 
   // Mouse event handlers (for desktop)
   const handleMouseDown = (event) => {
     touchStartX.value = event.clientX
+    touchStartY.value = event.clientY
     isMouseDown.value = true
     isDragging.value = true
+    isHorizontalSwipe.value = false
     // Prevent text selection during drag
     event.preventDefault()
     onSwipeStart()
@@ -59,16 +86,37 @@ export function useSwipe(callbacks = {}) {
 
   const handleMouseMove = (event) => {
     if (!isDragging.value || !isMouseDown.value) return
-    event.preventDefault()
+    
+    const currentX = event.clientX
+    const currentY = event.clientY
+    const deltaX = Math.abs(currentX - touchStartX.value)
+    const deltaY = Math.abs(currentY - touchStartY.value)
+    
+    // Determine if this is a horizontal or vertical movement
+    if (deltaX > 10 || deltaY > 10) { // Only decide after meaningful movement
+      isHorizontalSwipe.value = deltaX > deltaY
+      
+      // Only prevent default behavior for horizontal movements
+      if (isHorizontalSwipe.value) {
+        event.preventDefault()
+      }
+    }
   }
 
   const handleMouseUp = (event) => {
     if (!isDragging.value || !isMouseDown.value) return
     
     touchEndX.value = event.clientX
-    handleSwipe()
+    touchEndY.value = event.clientY
+    
+    // Only process swipe if it was primarily horizontal
+    if (isHorizontalSwipe.value) {
+      handleSwipe()
+    }
+    
     isDragging.value = false
     isMouseDown.value = false
+    isHorizontalSwipe.value = false
     onSwipeEnd()
   }
 
