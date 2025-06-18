@@ -247,7 +247,7 @@
               <h3>Smart product highlight</h3>
               <p>
                 From intent detection to
-                <span class="highlight">UX action</span>. Point out products that match user interest, or redirect to a specific page.
+                <span class="highlight">UX action</span>. Point out products that match user interest.
               </p>
             </div>
           </div>
