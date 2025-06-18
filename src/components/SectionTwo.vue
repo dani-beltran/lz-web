@@ -68,7 +68,7 @@
           <div class="content-header">
             <Bot class="section-icon highlight" />
             <div class="text-container">
-              <h3>Meaningful conversations</h3>
+              <h3>Shopping agents</h3>
               <p>
                 <span class="highlight">AI agents</span> proactively refine user
                 interest through
@@ -204,7 +204,27 @@
           Deploy the right nudge or tool, anywhere over your website, in minutes
         </h3>
       </div>
-      <div class="grid-container one-column">
+      <div class="grid-container">
+        <div class="grid-item">
+          <div class="content-header">
+            <Info class="section-icon highlight" />
+            <div class="text-container">
+              <h3>Informational overlay</h3>
+              <p>
+                Triggered by user interest to reveal, within context, extra product details, like <span class="highlight">videos</span>, reviews, or guides.
+              </p>
+            </div>
+          </div>
+
+          <div class="image-container purple">
+            <img
+              src="@/assets/imgs/video-overlay-luxury-ecommerce-personalization.png"
+              alt="Modal Review User LayerZ"
+              class="item-image"
+            />
+          </div>
+        </div>
+
         <div class="grid-item">
           <div class="content-header">
             <MapPin class="section-icon highlight" />
@@ -212,12 +232,11 @@
               <h3>Smart product highlight</h3>
               <p>
                 From intent detection to
-                <span class="highlight">UX action</span>.
+                <span class="highlight">UX action</span>. Point out products that match user interest, or redirect to a specific page.
               </p>
             </div>
           </div>
-
-          <div class="image-container purple">
+          <div class="image-container pink">
             <img
               src="@/assets/imgs/next-gen-dxp-recommendation-targeting.png"
               alt="Modal Review User LayerZ"
@@ -240,6 +259,7 @@ import {
   Smile,
   MapPin,
   MessageCircleQuestion,
+  Info
 } from "lucide-vue-next";
 
 export default {
@@ -253,6 +273,7 @@ export default {
     Smile,
     MapPin,
     MessageCircleQuestion,
+    Info
   },
 };
 </script>
@@ -300,10 +321,6 @@ export default {
   row-gap: 80px;
   width: 100%;
   margin: auto;
-}
-
-.grid-container.one-column {
-  grid-template-columns: 1fr;
 }
 
 .grid-item {
