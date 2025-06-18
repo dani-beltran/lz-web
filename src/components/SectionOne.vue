@@ -57,7 +57,8 @@ export default {
 <style scoped>
 .section {
   width: 100vw;
-  height: 100vh;
+  height: 100vh; /* Fallback for older browsers */
+  height: 100dvh; /* Dynamic viewport height for modern browsers */
   display: flex;
   flex-direction: column;
 }
