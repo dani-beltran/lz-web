@@ -65,7 +65,7 @@
 </template>
 
 <script>
-import emailjs from "@emailjs/browser";
+import { emailService } from "@/services/emailService.js";
 
 export default {
   name: "ContactForm",
@@ -82,33 +82,28 @@ export default {
     };
   },
   mounted() {
-    // Initialize EmailJS with your public key
-    emailjs.init({
-      publicKey: "bYS8rZcjxAnKFuQCQ",
-    });
+    // Initialize EmailJS service
+    emailService.init();
     // Initialize form data if needed
     this.resetForm();
   },
   methods: {
-    submitForm() {
+    async submitForm() {
       this.isLoading = true;
       
-      emailjs
-        .send("service_glm7r3f", "template_wwopw9n", {
-          ...this.form,
-          time: new Date().toISOString(),
-        })
-        .then(() => {
-          this.$emit("submit", { ...this.form });
-          this.resetForm();
-        })
-        .catch((error) => {
-          console.error("Failed to send email:", error);
-          alert("Failed to send message. Please try again.");
-        })
-        .finally(() => {
-          this.isLoading = false;
-        });
+      try {
+        const result = await emailService.sendContactForm(this.form);
+        
+        // Emit success event with form data
+        this.$emit("submit", result.data);
+        this.resetForm();
+        
+      } catch (error) {
+        console.error("Failed to send email:", error);
+        alert("Failed to send message. Please try again.");
+      } finally {
+        this.isLoading = false;
+      }
     },
 
     resetForm() {
