@@ -50,13 +50,10 @@
     </div>
 
     <!-- Error Message -->
-    <div v-if="errorMessage" class="error-message">
-      <div class="error-content">
-        <span class="error-icon">⚠️</span>
-        <span class="error-text">{{ errorMessage }}</span>
-        <button type="button" class="error-close" @click="clearError">×</button>
-      </div>
-    </div>
+    <ErrorMessage 
+      :message="errorMessage" 
+      @close="clearError" 
+    />
 
     <div class="form-actions">
       <button type="button" @click="$emit('cancel')" class="btn-cancel">
@@ -74,9 +71,13 @@
 </template>
 
 <script>
+import ErrorMessage from './ErrorMessage.vue';
 
 export default {
   name: "ContactForm",
+  components: {
+    ErrorMessage
+  },
   emits: ["submit-success", "submit-error", "cancel"],
   props: {
     onSubmit: {
@@ -235,66 +236,6 @@ export default {
   border-top: 2px solid currentColor;
   border-radius: 50%;
   animation: spin 1s linear infinite;
-}
-
-/* Error Message Styles */
-.error-message {
-  margin-bottom: 20px;
-  animation: slideDown 0.3s ease-out;
-}
-
-.error-content {
-  display: flex;
-  align-items: center;
-  background-color: #fef2f2;
-  border: 1px solid #fecaca;
-  border-radius: 8px;
-  padding: 12px 16px;
-  color: #dc2626;
-}
-
-.error-icon {
-  margin-right: 8px;
-  font-size: 16px;
-}
-
-.error-text {
-  flex: 1;
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.error-close {
-  background: none;
-  border: none;
-  color: #dc2626;
-  font-size: 18px;
-  font-weight: bold;
-  cursor: pointer;
-  padding: 0;
-  margin-left: 8px;
-  width: 20px;
-  height: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 4px;
-  transition: background-color 0.2s ease;
-}
-
-.error-close:hover {
-  background-color: #fca5a5;
-}
-
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 @keyframes spin {
