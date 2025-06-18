@@ -60,7 +60,7 @@
       <div class="subsection-header">
         <h2 class="title">From subtle interest to meaningful conversation</h2>
         <h3 class="subtitle">
-          Refining user interest, naturally, like a real salesperson would
+          Refining user interest, naturally, like a real salesperson would or jump to help at the right moment
         </h3>
       </div>
       <div class="grid-container">
@@ -68,12 +68,9 @@
           <div class="content-header">
             <Bot class="section-icon highlight" />
             <div class="text-container">
-              <h3>Shopping agents</h3>
+              <h3>Shopping agent</h3>
               <p>
-                <span class="highlight">AI agents</span> proactively refine user
-                interest through
-                <span class="highlight">human-like interactions</span> on the
-                right context, at the right time.
+               Drive customer to buy, accelerate product discovery, Up-sell and Cross-sell.
               </p>
             </div>
           </div>
@@ -85,8 +82,26 @@
             />
           </div>
         </div>
+        <div class="grid-item">
+           <div class="content-header">
+            <Headset class="section-icon highlight" />
+            <div class="text-container">
+              <h3>Support agent</h3>
+              <p>
+                Customer obsessed agent for faster resolutions.
+              </p>
+            </div>
+          </div>
+          <div class="image-container purple">
+            <img
+              src="@/assets/imgs/ai-agent-conversion-optimization.png"
+              alt="Modal Review User LayerZ"
+              class="item-image shrink"
+            />
+          </div>
+        </div>
       </div>
-    </div>
+      </div>
 
     <!-- Separator Line -->
     <div class="section-separator"></div>
@@ -259,7 +274,8 @@ import {
   Smile,
   MapPin,
   MessageCircleQuestion,
-  Info
+  Info,
+  Headset,
 } from "lucide-vue-next";
 
 export default {
@@ -273,7 +289,8 @@ export default {
     Smile,
     MapPin,
     MessageCircleQuestion,
-    Info
+    Info,
+    Headset
   },
 };
 </script>
@@ -383,6 +400,10 @@ export default {
   max-height: 50vh;
   position: relative;
   z-index: 1;
+}
+
+.item-image.shrink {
+  max-height: 45vh;
 }
 
 .content-header {
