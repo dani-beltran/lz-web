@@ -49,16 +49,48 @@
           </div>
         </div>
       </div>
+      
+      <!-- Contact Us Button -->
+      <div class="contact-button-container">
+        <button class="contact-us-btn" @click="openContactModal">
+          Contact Us
+        </button>
+      </div>
     </div>
   </section>
 </template>
 <script>
+import { onBeforeUnmount } from 'vue'
+import { useModal } from '@/composables/useModal.js'
 import LinkedinIcon from './icons/LinkedinIcon.vue'
+import ContactForm from './ContactForm.vue'
 
 export default {
   name: "SectionFour",
   components: {
     LinkedinIcon
+  },
+  setup() {
+    const { openModal, cleanup } = useModal()
+
+    const handleFormSubmit = (formData) => {
+      console.log('Form data received in SectionFour:', formData)
+    }
+
+    const openContactModal = () => {
+      openModal(ContactForm, {
+        onSubmit: handleFormSubmit
+      })
+    }
+
+    // Cleanup when component unmounts
+    onBeforeUnmount(() => {
+      cleanup()
+    })
+
+    return {
+      openContactModal
+    }
   }
 };
 </script>
@@ -68,10 +100,6 @@ export default {
   width: 100vw;
   position: relative;
   padding: 60px 80px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 .section-4 {
   background-color: #FFF;
@@ -80,6 +108,7 @@ export default {
 .section-header {
   max-width: 1600px;
   width: 100%;
+  margin: 0 auto;
   margin-bottom: 40px;
   color: #270972; /* Indigo */
 }
@@ -87,10 +116,7 @@ export default {
 .section-content {
   max-width: 1600px;
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
+  margin: 0 auto;
 }
 
 .grid-container {
@@ -102,7 +128,36 @@ export default {
 
 .grid-item {
   border-radius: 8px;
-  /* padding: 20px; */
+}
+
+.contact-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+  width: 100%;
+}
+
+.contact-us-btn {
+  background-color: #270972;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 16px 32px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(39, 9, 114, 0.3);
+}
+
+.contact-us-btn:hover {
+  background-color: #1f0659;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(39, 9, 114, 0.4);
+}
+
+.contact-us-btn:active {
+  transform: translateY(0);
 }
 
 .item-image {
@@ -140,6 +195,10 @@ export default {
   .grid-container {
     gap: 40px;
   }
+
+  .contact-button-container {
+    margin-top: 40px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -151,5 +210,13 @@ export default {
     grid-template-columns: 1fr;
   }
 
+  .contact-button-container {
+    margin-top: 30px;
+  }
+
+  .contact-us-btn {
+    padding: 14px 28px;
+    font-size: 1rem;
+  }
 }
 </style>
