@@ -64,17 +64,21 @@ import { onBeforeUnmount } from 'vue'
 import { useModal } from '@/composables/useModal.js'
 import LinkedinIcon from './icons/LinkedinIcon.vue'
 import ContactForm from './ContactForm.vue'
+import { emailService } from '../services/emailService';
 
 export default {
   name: "SectionFour",
   components: {
     LinkedinIcon
   },
+  mounted() {
+    emailService.init();
+  },
   setup() {
     const { openModal, cleanup } = useModal()
 
-    const handleFormSubmit = (formData) => {
-      console.log('Form data received in SectionFour:', formData)
+    const handleFormSubmit = async (formData) => {
+        await emailService.sendContactForm(formData);
     }
 
     const openContactModal = () => {

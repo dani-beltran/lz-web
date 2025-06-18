@@ -67,6 +67,7 @@ import TwitterIcon from './icons/TwitterIcon.vue'
 import LinkedinIcon from './icons/LinkedinIcon.vue'
 import YouTubeIcon from './icons/YouTubeIcon.vue'
 import ContactForm from './ContactForm.vue'
+import { emailService } from '../services/emailService'
 
 export default {
   name: 'FooterComponent',
@@ -75,11 +76,19 @@ export default {
     LinkedinIcon,
     YouTubeIcon
   },
+  mounted() {
+    emailService.init();
+  },
   setup() {
     const { openModal, closeModal, cleanup } = useModal()
 
     const handleFormSubmit = (formData) => {
-      console.log('Form data received in footer:', formData)
+      try {
+        emailService.sendContactForm(formData);
+        console.log('Email sent successfully with data:', formData);
+      } catch (error) {
+        console.error('Error sending email:', error);
+      }
     }
 
     const openContactModal = () => {

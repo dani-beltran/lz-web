@@ -14,15 +14,11 @@ export function useModal() {
     return modalContainer
   }
 
-  const handleSubmit = (data, onSubmit) => {
-    if (onSubmit) onSubmit(data)
-    closeModal()
-  }
-
   const createComponentProps = (props) => ({
     ...props,
     onCancel: closeModal,
-    onSubmit: (data) => handleSubmit(data, props.onSubmit)
+    onSubmit: (data) => props.onSubmit(data),
+    onSubmitSuccess: () => closeModal()
   })
 
   const createModalRender = (Modal, component, props) => {
