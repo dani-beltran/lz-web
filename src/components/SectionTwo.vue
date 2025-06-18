@@ -174,7 +174,7 @@
 
         <div class="grid-item">
           <div class="content-header">
-            <Coins class="section-icon highlight" />
+            <Smile class="section-icon highlight" />
             <div class="text-container">
               <h3>Contextual Cross-sell</h3>
               <p>
@@ -237,7 +237,7 @@ import {
   Bot,
   DoorOpen,
   Angry,
-  Coins,
+  Smile,
   MapPin,
   MessageCircleQuestion,
 } from "lucide-vue-next";
@@ -250,7 +250,7 @@ export default {
     Bot,
     DoorOpen,
     Angry,
-    Coins,
+    Smile,
     MapPin,
     MessageCircleQuestion,
   },
