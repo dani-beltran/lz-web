@@ -22,7 +22,10 @@ export const GA_CONFIG = {
   },
 
   // Enable/disable tracking in different environments
-  ENABLED: window?.location.hostname === "layerz.com", // Only track on layerz.com domain
+  // Only track on layerz.com domain
+  ENABLED:
+    window?.location.hostname === "layerz.com" ||
+    window?.location.hostname === "www.layerz.com",
 
   // Enable debug mode with ?ga_debug=1
   DEBUG:
