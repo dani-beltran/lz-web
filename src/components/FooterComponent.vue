@@ -1,6 +1,16 @@
 <template>
   <footer class="footer">
     <div class="footer-content">
+      <div class="footer-provisional-links">
+        <a href="/terms-of-service.html">Terms of Service</a>
+        <a href="/privacy-policy.html">Privacy Policy</a>
+        <a href="/legal.html">Legal</a>
+        <a href="/cookie-policy.html">Cookie Policy</a>
+        <a href="#" @click.prevent="openModal">Contact Us</a>
+      </div>
+    </div>
+    <!-- Hidden until we have the content ready -->
+    <div class="footer-content" style="display:none">
       <div class="footer-section">
         <h4>Company</h4>
         <ul>
@@ -111,6 +121,25 @@ export default {
 </script>
 
 <style scoped>
+.footer-provisional-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.footer-provisional-links a {
+    color: #d1d5db; /* Light Gray */
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.footer-provisional-links a:hover {
+    color: #ffffff; /* White */
+}
+
 .footer {
     background-color: #1f2937; /* Dark Gray */
     color: #f9fafb;
@@ -124,12 +153,6 @@ export default {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 40px;
-}
-
-/* Hidden until links are implemented */
-/* TODO: Implement footer links */
-.footer-content .footer-section {
-    display: none;
 }
 
 .footer-section h4 {
@@ -161,8 +184,7 @@ export default {
     max-width: 1600px;
     margin: 30px auto 0;
     padding-top: 20px;
-    /* Hidden while not footer links */
-    /* TODO: Implement footer links */
+    border-top: 1px solid #374151; /* Gray */
     text-align: center;
     color: #9ca3af;
 }

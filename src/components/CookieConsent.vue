@@ -57,6 +57,23 @@
               They cannot be disabled.
             </p>
           </div>
+
+           <div class="cookie-type">
+            <div class="cookie-type-header">
+              <input 
+                type="checkbox" 
+                id="functional" 
+                v-model="consent.functional"
+              />
+              <label for="functional">
+                <strong>Functional Cookies</strong>
+              </label>
+            </div>
+            <p class="cookie-description">
+              These cookies allow us to remember your preferences and provide 
+              enhanced functionality and personalization.
+            </p>
+          </div>
           
           <div class="cookie-type">
             <div class="cookie-type-header">
@@ -136,6 +153,7 @@ export default {
       showDetailedSettings: false,
       consent: {
         necessary: true,
+        functional: false,
         analytics: false,
         marketing: false
       }
@@ -159,6 +177,7 @@ export default {
     acceptAll() {
       this.consent = {
         necessary: true,
+        functional: true,
         analytics: true,
         // We don't use marketing cookies yet, so we keep it false
         // marketing: true
@@ -169,6 +188,7 @@ export default {
     rejectAll() {
       this.consent = {
         necessary: true,
+        functional: false,
         analytics: false,
         marketing: false
       };
