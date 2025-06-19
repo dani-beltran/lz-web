@@ -14,6 +14,7 @@ import SectionTwo from "./components/SectionTwo.vue";
 import SectionThree from "./components/SectionThree.vue";
 import SectionFour from "./components/SectionFour.vue";
 import FooterComponent from "./components/FooterComponent.vue";
+import { initGA, trackPageView, setupScrollTracking } from "./utils/analytics.js";
 
 export default {
   name: "App",
@@ -23,6 +24,16 @@ export default {
     SectionThree,
     SectionFour,
     FooterComponent,
+  },
+  mounted() {
+    // Initialize Google Analytics when the app is mounted
+    initGA();
+    
+    // Track the initial page view
+    trackPageView(window.location.pathname, document.title);
+    
+    // Set up scroll depth tracking
+    setupScrollTracking();
   },
 };
 </script>
