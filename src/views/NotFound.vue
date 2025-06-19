@@ -1,59 +1,37 @@
 <template>
   <div class="not-found">
-    <!-- Page Header -->
-    <div class="header">
-      <div class="container">
-        <h1>404</h1>
-        <p>Page Not Found</p>
-      </div>
+    <!-- Floating background elements -->
+    <div class="floating-elements">
+      <div class="floating-element"></div>
+      <div class="floating-element"></div>
+      <div class="floating-element"></div>
+      <div class="floating-element"></div>
     </div>
 
-    <!-- Main Content -->
     <div class="container">
-      <div class="content">
-        <div class="error-illustration">
-          <div class="error-icon">🔍</div>
-          <h2>Oops! Page Not Found</h2>
-          <p>The page you're looking for doesn't exist or has been moved.</p>
-        </div>
-
-        <div class="suggestions">
-          <h3>What you can do:</h3>
-          <ul>
-            <li>Check the URL for typos</li>
-            <li>Go back to the <router-link to="/">homepage</router-link></li>
-            <li>Visit our <router-link to="/legal">Legal Hub</router-link></li>
-            <li>Contact our support team if you think this is an error</li>
-          </ul>
-        </div>
-
-        <div class="quick-links">
-          <h3>Quick Links</h3>
-          <div class="links-grid">
-            <router-link to="/" class="quick-link">
-              <span class="link-icon">🏠</span>
-              <span>Home</span>
-            </router-link>
-            <router-link to="/privacy-policy" class="quick-link">
-              <span class="link-icon">🔒</span>
-              <span>Privacy Policy</span>
-            </router-link>
-            <router-link to="/terms-of-service" class="quick-link">
-              <span class="link-icon">📝</span>
-              <span>Terms of Service</span>
-            </router-link>
-            <router-link to="/legal" class="quick-link">
-              <span class="link-icon">⚖️</span>
-              <span>Legal Hub</span>
-            </router-link>
-          </div>
-        </div>
-
-        <div class="contact-support">
-          <h3>Need Help?</h3>
-          <p>If you believe this is an error or need assistance, please contact our support team:</p>
-          <a href="mailto:support@herragen.ch" class="support-btn">Contact Support</a>
-        </div>
+      <!-- LayerZ Logo -->
+      <img src="https://lz-assets.s3.eu-west-1.amazonaws.com/layerz-logo.png" alt="LayerZ Logo" class="logo" />
+      
+      <!-- Error Code -->
+      <div class="error-code">404</div>
+      
+      <!-- Error Title -->
+      <h1 class="error-title">Page <span class="highlight">Not Found</span></h1>
+      
+      <!-- Error Message -->
+      <p class="error-message">
+        Oops! The page you're looking for seems to have vanished into another layer. 
+        Don't worry, we'll help you get back on track.
+      </p>
+      
+      <!-- Action Buttons -->
+      <div class="actions">
+        <router-link to="/" class="btn btn-primary">
+          🏠 Go Home
+        </router-link>
+        <button @click="goBack" class="btn btn-secondary">
+          ← Go Back
+        </button>
       </div>
     </div>
   </div>
@@ -70,187 +48,266 @@ export default {
         fatal: false
       })
     }
+    this.setupKeyboardNavigation()
+    this.addConsoleEasterEgg()
+  },
+  beforeUnmount() {
+    if (this.keydownHandler) {
+      document.removeEventListener('keydown', this.keydownHandler)
+    }
+  },
+  methods: {
+    goBack() {
+      this.$router.go(-1)
+    },
+    setupKeyboardNavigation() {
+      // Add keyboard navigation
+      this.keydownHandler = (e) => {
+        if (e.key === 'Escape' || e.key === 'Backspace') {
+          this.$router.go(-1)
+        } else if (e.key === 'Enter' || e.key === 'Home') {
+          this.$router.push('/')
+        }
+      }
+      document.addEventListener('keydown', this.keydownHandler)
+    },
+    addConsoleEasterEgg() {
+      // Add console easter egg
+      console.log('%cLayerZ 404 Page', 'color: #270972; font-size: 20px; font-weight: bold;')
+      console.log('%cLooks like you found a page that doesn\'t exist! 🚀', 'color: #666; font-size: 14px;')
+    }
   }
 }
 </script>
 
 <style scoped>
 .not-found {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  line-height: 1.6;
-  color: #333;
-  background-color: #fafafa;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  background: linear-gradient(135deg, #270972 0%, #1e0654 100%);
+  color: #ffffff;
   min-height: 100vh;
-}
-
-.header {
-  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
-  color: white;
-  padding: 3rem 0;
-  text-align: center;
-}
-
-.header h1 {
-  font-size: 4rem;
-  margin-bottom: 0.5rem;
-  font-weight: 700;
-}
-
-.header p {
-  font-size: 1.5rem;
-  opacity: 0.9;
-}
-
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
-.content {
-  background: white;
-  margin: 3rem auto 3rem;
-  padding: 3rem;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-
-.error-illustration {
-  margin-bottom: 3rem;
-}
-
-.error-icon {
-  font-size: 4rem;
-  margin-bottom: 1rem;
-}
-
-.error-illustration h2 {
-  color: #2c3e50;
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-.error-illustration p {
-  font-size: 1.1rem;
-  color: #666;
-}
-
-.suggestions {
-  background: #f8f9fa;
-  padding: 2rem;
-  border-radius: 8px;
-  margin-bottom: 2rem;
-  text-align: left;
-}
-
-.suggestions h3 {
-  color: #2c3e50;
-  margin-bottom: 1rem;
-}
-
-.suggestions ul {
-  list-style-position: inside;
-}
-
-.suggestions li {
-  margin-bottom: 0.5rem;
-}
-
-.suggestions a {
-  color: #3498db;
-  text-decoration: none;
-}
-
-.suggestions a:hover {
-  text-decoration: underline;
-}
-
-.quick-links {
-  margin-bottom: 2rem;
-}
-
-.quick-links h3 {
-  color: #2c3e50;
-  margin-bottom: 1.5rem;
-}
-
-.links-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1rem;
-}
-
-.quick-link {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1.5rem;
-  background: #f8f9fa;
-  border-radius: 8px;
-  text-decoration: none;
-  color: #2c3e50;
-  transition: all 0.2s ease;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
 }
 
-.quick-link:hover {
-  background: #e9ecef;
+.container {
+  max-width: 600px;
+  width: 100%;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.logo {
+  width: 150px;
+  height: auto;
+  margin-bottom: 40px;
+  opacity: 0.9;
+}
+
+.error-code {
+  font-size: 8rem;
+  font-weight: 900;
+  color: #ffffff;
+  margin-bottom: 20px;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  line-height: 1;
+}
+
+.error-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.error-message {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+}
+
+.highlight {
+  background: linear-gradient(90deg, #ff6b9d, #c471f5, #12c2e9);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 3s ease-in-out infinite;
+}
+
+.actions {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 140px;
+  justify-content: center;
+  font-family: inherit;
+}
+
+.btn-primary {
+  background-color: #ffffff;
+  color: #270972;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+}
+
+.btn-primary:hover {
+  background-color: #f8f9fa;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(255, 255, 255, 0.3);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
   transform: translateY(-2px);
 }
 
-.link-icon {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
+.floating-elements {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
 }
 
-.contact-support {
-  background: #fff3cd;
-  border: 1px solid #ffeaa7;
-  border-radius: 8px;
-  padding: 2rem;
+.floating-element {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
 }
 
-.contact-support h3 {
-  color: #2c3e50;
-  margin-bottom: 1rem;
+.floating-element:nth-child(1) {
+  width: 80px;
+  height: 80px;
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
 }
 
-.support-btn {
-  display: inline-block;
-  background: #f39c12;
-  color: white;
-  padding: 0.8rem 1.5rem;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: 600;
-  margin-top: 1rem;
-  transition: background-color 0.2s;
+.floating-element:nth-child(2) {
+  width: 120px;
+  height: 120px;
+  top: 20%;
+  right: 15%;
+  animation-delay: 2s;
 }
 
-.support-btn:hover {
-  background: #e67e22;
+.floating-element:nth-child(3) {
+  width: 60px;
+  height: 60px;
+  bottom: 20%;
+  left: 20%;
+  animation-delay: 4s;
+}
+
+.floating-element:nth-child(4) {
+  width: 100px;
+  height: 100px;
+  bottom: 15%;
+  right: 10%;
+  animation-delay: 1s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-20px) rotate(120deg);
+  }
+  66% {
+    transform: translateY(10px) rotate(240deg);
+  }
 }
 
 @media (max-width: 768px) {
+  .error-code {
+    font-size: 6rem;
+  }
+
+  .error-title {
+    font-size: 2rem;
+  }
+
+  .error-message {
+    font-size: 1rem;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .logo {
+    width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .error-code {
+    font-size: 4.5rem;
+  }
+
+  .error-title {
+    font-size: 1.5rem;
+  }
+
   .container {
-    padding: 0 1rem;
-  }
-
-  .content {
-    padding: 2rem 1.5rem;
-    margin: -2rem auto 2rem;
-  }
-
-  .header h1 {
-    font-size: 3rem;
-  }
-
-  .header p {
-    font-size: 1.2rem;
-  }
-
-  .links-grid {
-    grid-template-columns: repeat(2, 1fr);
+    padding: 0 10px;
   }
 }
 </style>
