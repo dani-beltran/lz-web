@@ -1,20 +1,4 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Helvetica, Arial, sans-serif;
-    overflow-x: hidden;
-}
-
-/* Smooth scrolling */
-html {
-    scroll-behavior: smooth;
-}
-
-h1 {
+.supertitle {
 color: #FFF;
 font-style: normal;
 font-size: 3.5rem;
@@ -24,11 +8,7 @@ text-align: left;
 width: 100%;
 }
 
-.highlight {
-    color: #F3389E;
-}
-
-h2 {
+.title {
     color: #24086d;
     font-style: normal;
     font-size: 2.5rem;
@@ -39,7 +19,7 @@ h2 {
     margin-bottom: 1rem;
 }
 
-h3 {
+.subtitle {
     color: #24086d;
     font-style: normal;
     font-size: 2rem;
@@ -50,43 +30,50 @@ h3 {
     margin-bottom: 0.5rem;
 }
 
-p {
+.paragraph {
     font-size: 1.4rem;
     font-weight: 400;
     line-height: 1.5;
     margin-bottom: 1.5rem;
     margin-block-start: 0;
     margin-block-end: 0;
-    text-align: left;
+}
+
+.highlight {
+    color: #F3389E;
+}
+
+.supertitle.center, .title.center, .subtitle.center, .paragraph.center {
+    text-align: center;
 }
 
 
 @media (max-width: 1280px) {
-    h1 {
+    .supertitle {
         font-size: 2.5rem;
     }
-    h2 {
+    .title {
         font-size: 2rem;
     }
-    h3 {
+    .subtitle {
         font-size: 1.8rem;
     }
-    p {
+    .paragraph {
         font-size: 1.2rem;
     }
 }
 
 @media (max-width: 480px) {
-    h1 {
+    .supertitle {
         font-size: 1.8rem;
     }
-    h2 {
+    .title {
         font-size: 1.6rem;
     }
-    h3 {
+    .subtitle {
         font-size: 1.4rem;
     }
-    p {
+    .paragraph {
         font-size: 1rem;
     }
 }

@@ -15,7 +15,7 @@
            v-for="(slide, index) in slides" 
            :key="index"
            :style="{ flexBasis: slideWidth }">
-        <h1 v-html="slide"></h1>
+        <h1 class="supertitle" v-html="slide"></h1>
       </div>
     </div>
     

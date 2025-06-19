@@ -2,10 +2,10 @@
   <footer class="footer">
     <div class="footer-content">
       <div class="footer-provisional-links">
-        <a href="/terms-of-service.html">Terms of Service</a>
-        <a href="/privacy-policy.html">Privacy Policy</a>
-        <a href="/legal.html">Legal</a>
-        <a href="/cookie-policy.html">Cookie Policy</a>
+        <router-link to="/terms-of-service">Terms of Service</router-link>
+        <router-link to="/privacy-policy">Privacy Policy</router-link>
+        <router-link to="/legal">Legal</router-link>
+        <router-link to="/cookie-policy">Cookie Policy</router-link>
         <a href="#" @click.prevent="openModal">Contact Us</a>
       </div>
     </div>

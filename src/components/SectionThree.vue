@@ -4,24 +4,24 @@
       <div class="grid-item">
         <Rocket class="icon"></Rocket>
         <div class="feature-text">
-          <h3 class="highlight">Boost conversions</h3>
-          <p>Engage customers at the right moment</p>
+          <h3 class="subtitle highlight">Boost conversions</h3>
+          <p class="paragraph">Engage customers at the right moment</p>
         </div>
       </div>
       
       <div class="grid-item">
         <HeartHandshake class="icon"></HeartHandshake>
         <div class="feature-text">
-          <h3 class="highlight">Build customer intimacy</h3>
-          <p>React to behaviour & preferences in real time</p>
+          <h3 class="subtitle highlight">Build customer intimacy</h3>
+          <p class="paragraph">React to behaviour & preferences in real time</p>
         </div>
       </div>
 
       <div class="grid-item">
         <Brain class="icon"></Brain>
         <div class="feature-text">
-          <h3 class="highlight">Understand intent</h3>
-          <p>Detect subtle cues and respond appropriately</p>
+          <h3 class="subtitle highlight">Understand intent</h3>
+          <p class="paragraph">Detect subtle cues and respond appropriately</p>
         </div>
       </div>
 
@@ -29,24 +29,24 @@
       <div class="grid-item">
         <Sparkles class="icon"></Sparkles>
         <div class="feature-text">
-          <h3 class="highlight">Improve UX</h3>
-          <p>Timely & relevant actions that feel natural</p>
+          <h3 class="subtitle highlight">Improve UX</h3>
+          <p class="paragraph">Timely & relevant actions that feel natural</p>
         </div>
       </div>
 
       <div class="grid-item">
         <Images class="icon"></Images>
         <div class="feature-text">
-          <h3 class="highlight">No-code UX activation</h3>
-          <p>Empower teams to create experiences without coding</p>
+          <h3 class="subtitle highlight">No-code UX activation</h3>
+          <p class="paragraph">Empower teams to create experiences without coding</p>
         </div>
       </div>
       
       <div class="grid-item">
         <Unplug class="icon"></Unplug>
         <div class="feature-text">
-          <h3 class="highlight">Open by design</h3>
-          <p>Connect any CRM, CDP, LLM and more</p>
+          <h3 class="subtitle highlight">Open by design</h3>
+          <p class="paragraph">Connect any CRM, CDP, LLM and more</p>
         </div>
       </div>
     </div>
@@ -104,7 +104,7 @@ export default {
   gap: 20px;
 }
 
-.feature-text h3 {
+.feature-text .subtitle {
   line-height: 1.2;
   height: 2.4em; /* 2 lines */
   overflow: hidden;
@@ -114,7 +114,7 @@ export default {
   -webkit-box-orient: vertical;
 }
 
-.feature-text p {
+.feature-text .paragraph {
   line-height: 1.5;
   height: 3em; /* 2 lines */
   overflow: hidden;
@@ -139,7 +139,7 @@ export default {
 }
 
 @media screen and (max-width: 1024px) {
-  .feature-text h3 {
+  .feature-text .subtitle {
     height: 1.2em; /* 1 lines */
     -webkit-line-clamp: 1;
     line-clamp: 1;

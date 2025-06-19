@@ -1,8 +1,8 @@
 <template>
   <section class="section section-4" id="section-4">
     <div class="section-header">
-      <h2>Our Team</h2>
-      <p>Meet the passionate individuals behind LayerZ.</p>
+      <h2 class="title">Our Team</h2>
+      <p class="paragraph">Meet the passionate individuals behind LayerZ.</p>
     </div>
     <div class="section-content">
       <div class="grid-container">
@@ -13,8 +13,8 @@
             class="item-image"
           />
           <div class="text-container">
-            <h3>Mike Rogers</h3>
-            <p>CEO and Co-founder</p>
+            <h3 class="subtitle">Mike Rogers</h3>
+            <p class="paragraph">CEO and Co-founder</p>
             <a href="https://www.linkedin.com/in/mike-a-rogers/" aria-label="LinkedIn">
               <LinkedinIcon class="linkedin-icon" />
             </a>
@@ -27,8 +27,8 @@
             class="item-image"
           />
           <div class="text-container">
-            <h3>Marc Lamarche</h3>
-            <p>CMO and Co-founder</p>
+            <h3 class="subtitle">Marc Lamarche</h3>
+            <p class="paragraph">CMO and Co-founder</p>
             <a href="https://www.linkedin.com/in/marclamarche/" aria-label="LinkedIn">
               <LinkedinIcon class="linkedin-icon" />
             </a>
@@ -41,8 +41,8 @@
             class="item-image"
           />
           <div class="text-container">
-            <h3>Daniel Beltran</h3>
-            <p>CTO and Co-founder</p>
+            <h3 class="subtitle">Daniel Beltran</h3>
+            <p class="paragraph">CTO and Co-founder</p>
             <a href="https://www.linkedin.com/in/daniellidonbeltran/" aria-label="LinkedIn">
               <LinkedinIcon class="linkedin-icon" />
             </a>

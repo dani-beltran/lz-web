@@ -3,8 +3,8 @@
     <!-- Make silent signals speak, like in the real world -->
     <div class="subsection">
       <div class="subsection-header">
-        <h2 class="title">Make silent signals speak, like in the real world</h2>
-        <h3 class="subtitle">
+        <h2 class="title center">Make silent signals speak, like in the real world</h2>
+        <h3 class="subtitle center">
           Trigger at the right time, with the right message
         </h3>
       </div>
@@ -13,8 +13,8 @@
           <div class="content-header">
             <Eye class="section-icon highlight" />
             <div class="text-container">
-              <h3>Behavioral insights</h3>
-              <p>
+              <h3 class="subtitle">Behavioral insights</h3>
+              <p class="paragraph">
                 Understand user interest through
                 <span class="highlight">real-time analysis</span> of behavioral
                 signals.
@@ -33,8 +33,8 @@
           <div class="content-header">
             <MessagesSquare class="section-icon highlight" />
             <div class="text-container">
-              <h3>Trigger smart interactions</h3>
-              <p>
+              <h3 class="subtitle">Trigger smart interactions</h3>
+              <p class="paragraph">
                 Smart, contextual interactions at the
                 <span class="highlight">peak of intent</span>.
               </p>
@@ -58,8 +58,8 @@
     <!-- From subtle interest to meaningful conversation -->
     <div class="subsection">
       <div class="subsection-header">
-        <h2 class="title">From subtle interest to meaningful conversation</h2>
-        <h3 class="subtitle">
+        <h2 class="title center">From subtle interest to meaningful conversation</h2>
+        <h3 class="subtitle center">
           Refining user interest, naturally, like a real salesperson would or jump to help at the right moment
         </h3>
       </div>
@@ -68,8 +68,8 @@
           <div class="content-header">
             <Bot class="section-icon highlight" />
             <div class="text-container">
-              <h3>Shopping agent</h3>
-              <p>
+              <h3 class="subtitle">Shopping agent</h3>
+              <p class="paragraph">
                Drive customer to buy, accelerate product discovery, Up-sell and Cross-sell.
               </p>
             </div>
@@ -86,8 +86,8 @@
            <div class="content-header">
             <Headset class="section-icon highlight" />
             <div class="text-container">
-              <h3>Support agent</h3>
-              <p>
+              <h3 class="subtitle">Support agent</h3>
+              <p class="paragraph">
                 Customer obsessed agent for faster resolutions.
               </p>
             </div>
@@ -109,8 +109,8 @@
     <!-- Spot what others ignore -->
     <div class="subsection">
       <div class="subsection-header">
-        <h2 class="title">Spot what others ignore</h2>
-        <h3 class="subtitle">
+        <h2 class="title center">Spot what others ignore</h2>
+        <h3 class="subtitle center">
           Subtle signs are often overlooked. Capture them to unlock dialogue
         </h3>
       </div>
@@ -119,8 +119,8 @@
           <div class="content-header">
             <DoorOpen class="section-icon highlight" />
             <div class="text-container">
-              <h3>Exit intent detection</h3>
-              <p>Triggered when an engaged user is about to leave a page.</p>
+              <h3 class="subtitle">Exit intent detection</h3>
+              <p class="paragraph">Triggered when an engaged user is about to leave a page.</p>
             </div>
           </div>
           <div class="image-container purple">
@@ -136,8 +136,8 @@
           <div class="content-header">
             <MessageCircleQuestion class="section-icon highlight" />
             <div class="text-container">
-              <h3>Hesitation detection</h3>
-              <p>
+              <h3 class="subtitle">Hesitation detection</h3>
+              <p class="paragraph">
                 Triggered by hesitation, like a salesperson stepping in to help.
               </p>
             </div>
@@ -159,8 +159,8 @@
     <!-- Know what they need, before they ask -->
     <div class="subsection">
       <div class="subsection-header">
-        <h2 class="title">Know what they need, before they ask</h2>
-        <h3 class="subtitle">
+        <h2 class="title center">Know what they need, before they ask</h2>
+        <h3 class="subtitle center">
           React to behavioral cues to guide, reassure or recommend
         </h3>
       </div>
@@ -169,8 +169,8 @@
           <div class="content-header">
             <Angry class="section-icon highlight" />
             <div class="text-container">
-              <h3>Frustration detection</h3>
-              <p>
+              <h3 class="subtitle">Frustration detection</h3>
+              <p class="paragraph">
                 Triggered by user frustration, behavioral loops or signs of
                 friction, then we
                 <span class="highlight">offer contextual help</span>.
@@ -191,8 +191,8 @@
           <div class="content-header">
             <Smile class="section-icon highlight" />
             <div class="text-container">
-              <h3>Contextual Cross-sell</h3>
-              <p>
+              <h3 class="subtitle">Contextual Cross-sell</h3>
+              <p class="paragraph">
                 Triggered when user behaviour suggests a likely combo or need.
               </p>
             </div>
@@ -214,8 +214,8 @@
     <!-- Take control of your UX, no code -->
     <div class="subsection">
       <div class="subsection-header">
-        <h2 class="title">Take control of your UX, no code.</h2>
-        <h3 class="subtitle">
+        <h2 class="title center">Take control of your UX, no code.</h2>
+        <h3 class="subtitle center">
           Deploy the right nudge or tool, anywhere over your website, in minutes
         </h3>
       </div>
@@ -224,8 +224,8 @@
           <div class="content-header">
             <Info class="section-icon highlight" />
             <div class="text-container">
-              <h3>Informational overlay</h3>
-              <p>
+              <h3 class="subtitle">Informational overlay</h3>
+              <p class="paragraph">
                 Triggered by user interest to reveal, within context, extra product details, like <span class="highlight">videos</span>, reviews, or guides.
               </p>
             </div>
@@ -244,8 +244,8 @@
           <div class="content-header">
             <MapPin class="section-icon highlight" />
             <div class="text-container">
-              <h3>Smart product highlight</h3>
-              <p>
+              <h3 class="subtitle">Smart product highlight</h3>
+              <p class="paragraph">
                 From intent detection to
                 <span class="highlight">UX action</span>. Point out products that match user interest.
               </p>
@@ -323,12 +323,6 @@ export default {
 
 .title {
   color: #270972; /* Indigo */
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.subtitle {
-  text-align: center;
 }
 
 .grid-container {

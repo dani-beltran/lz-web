@@ -159,6 +159,7 @@ export default {
       }
     }
   },
+  emits: ['consent-given'],
   mounted() {
     this.checkConsentStatus();
   },
