@@ -74,8 +74,9 @@
               by collecting and reporting information anonymously.
             </p>
           </div>
-          
-          <div class="cookie-type">
+
+          <!-- HIDDEN MARKETING COOKIES since we don't use them -->
+          <div class="cookie-type" style="display:none">
             <div class="cookie-type-header">
               <input 
                 type="checkbox" 
@@ -159,7 +160,8 @@ export default {
       this.consent = {
         necessary: true,
         analytics: true,
-        marketing: true
+        // We don't use marketing cookies yet, so we keep it false
+        // marketing: true
       };
       this.saveConsent();
     },
