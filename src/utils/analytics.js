@@ -1,8 +1,43 @@
 // Google Analytics utility functions
 import GA_CONFIG from '../config/analytics.js';
+import { hasAnalyticsConsent } from './cookieConsent.js';
 
-// Initialize Google Analytics
-export function initGA(measurementId = GA_CONFIG.MEASUREMENT_ID) {
+// Track if GA scripts have been loaded
+let scriptsLoaded = false;
+
+// Load Google Analytics scripts dynamically
+function loadGAScripts() {
+  if (scriptsLoaded || typeof window === 'undefined') return Promise.resolve();
+
+  return new Promise((resolve) => {
+    // Load gtag script
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_CONFIG.MEASUREMENT_ID}`;
+    
+    script.onload = () => {
+      // Initialize dataLayer and gtag function
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function() {
+        window.dataLayer.push(arguments);
+      };
+      window.gtag('js', new Date());
+      
+      scriptsLoaded = true;
+      resolve();
+    };
+    
+    document.head.appendChild(script);
+  });
+}
+
+// Check if analytics is enabled and user has consented
+function canTrack() {
+  return GA_CONFIG.ENABLED && hasAnalyticsConsent() && typeof window !== 'undefined' && window.gtag;
+}
+
+// Initialize Google Analytics (only if user has consented)
+export async function initGA(measurementId = GA_CONFIG.MEASUREMENT_ID) {
   if (!GA_CONFIG.ENABLED) {
     if (GA_CONFIG.DEBUG) {
       console.log('Google Analytics is disabled in this environment');
@@ -10,11 +45,22 @@ export function initGA(measurementId = GA_CONFIG.MEASUREMENT_ID) {
     return;
   }
 
-  if (typeof window !== 'undefined' && window.gtag) {
+  if (!hasAnalyticsConsent()) {
+    if (GA_CONFIG.DEBUG) {
+      console.log('Google Analytics not initialized - user has not consented to analytics cookies');
+    }
+    return;
+  }
+
+  // Load GA scripts first
+  await loadGAScripts();
+
+  if (window.gtag) {
     window.gtag('config', measurementId, {
       page_title: document.title,
       page_location: window.location.href,
       debug_mode: GA_CONFIG.DEBUG,
+      anonymize_ip: true, // Privacy enhancement
     });
     
     if (GA_CONFIG.DEBUG) {
@@ -25,7 +71,10 @@ export function initGA(measurementId = GA_CONFIG.MEASUREMENT_ID) {
 
 // Track page views
 export function trackPageView(pagePath, pageTitle) {
-  if (!GA_CONFIG.ENABLED || typeof window === 'undefined' || !window.gtag) {
+  if (!canTrack()) {
+    if (GA_CONFIG.DEBUG) {
+      console.log('Page view not tracked - analytics disabled or no consent');
+    }
     return;
   }
 
@@ -41,7 +90,10 @@ export function trackPageView(pagePath, pageTitle) {
 
 // Track custom events
 export function trackEvent(eventName, parameters = {}) {
-  if (!GA_CONFIG.ENABLED || typeof window === 'undefined' || !window.gtag) {
+  if (!canTrack()) {
+    if (GA_CONFIG.DEBUG) {
+      console.log('Event not tracked - analytics disabled or no consent:', eventName);
+    }
     return;
   }
 
@@ -54,7 +106,10 @@ export function trackEvent(eventName, parameters = {}) {
 
 // Track conversions
 export function trackConversion(conversionName, value = null) {
-  if (!GA_CONFIG.ENABLED || typeof window === 'undefined' || !window.gtag) {
+  if (!canTrack()) {
+    if (GA_CONFIG.DEBUG) {
+      console.log('Conversion not tracked - analytics disabled or no consent:', conversionName);
+    }
     return;
   }
 
@@ -112,6 +167,9 @@ export function setupScrollTracking() {
   const trackedMilestones = new Set();
 
   function handleScroll() {
+    // Only track if user has consented
+    if (!hasAnalyticsConsent()) return;
+    
     const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
     const scrolled = (window.scrollY / scrollHeight) * 100;
     
@@ -128,4 +186,13 @@ export function setupScrollTracking() {
   }
 
   window.addEventListener('scroll', handleScroll, { passive: true });
+}
+
+// Function to reinitialize analytics after consent is given
+export async function reinitializeAnalytics() {
+  if (hasAnalyticsConsent()) {
+    await initGA();
+    trackPageView(window.location.pathname, document.title);
+    setupScrollTracking();
+  }
 }

@@ -5,6 +5,9 @@
     <SectionThree />
     <SectionFour />
     <FooterComponent />
+    
+    <!-- Cookie Consent Modal -->
+    <CookieConsent @consent-given="handleConsentGiven" ref="cookieConsent" />
   </div>
 </template>
 
@@ -14,7 +17,9 @@ import SectionTwo from "./components/SectionTwo.vue";
 import SectionThree from "./components/SectionThree.vue";
 import SectionFour from "./components/SectionFour.vue";
 import FooterComponent from "./components/FooterComponent.vue";
-import { initGA, trackPageView, setupScrollTracking } from "./utils/analytics.js";
+import CookieConsent from "./components/CookieConsent.vue";
+import { reinitializeAnalytics } from "./utils/analytics.js";
+import { hasAnyConsent, hasAnalyticsConsent } from "./utils/cookieConsent.js";
 
 export default {
   name: "App",
@@ -24,16 +29,28 @@ export default {
     SectionThree,
     SectionFour,
     FooterComponent,
+    CookieConsent,
   },
   mounted() {
-    // Initialize Google Analytics when the app is mounted
-    initGA();
+    // Check if user has already given consent
+    if (hasAnyConsent() && hasAnalyticsConsent()) {
+      // User has consented to analytics, initialize GA
+      reinitializeAnalytics();
+    }
+  },
+  methods: {
+    handleConsentGiven(consent) {
+      // Called when user gives/updates consent
+      if (consent.analytics) {
+        // User consented to analytics, initialize Google Analytics
+        reinitializeAnalytics();
+      }
+    },
     
-    // Track the initial page view
-    trackPageView(window.location.pathname, document.title);
-    
-    // Set up scroll depth tracking
-    setupScrollTracking();
+    // Method to show cookie settings (can be called from footer)
+    showCookieSettings() {
+      this.$refs.cookieConsent.showConsentModal();
+    }
   },
 };
 </script>
