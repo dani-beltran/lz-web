@@ -1,8 +1,33 @@
 <template>
-  <div v-if="showConsent" class="cookie-consent-overlay">
+  <!-- Non-intrusive bottom banner -->
+  <div v-if="showConsent && !showDetailedSettings" class="cookie-consent-banner">
+    <div class="cookie-banner-content">
+      <div class="cookie-banner-text">
+        <h4>🍪 We use cookies</h4>
+        <p>
+          We use cookies to enhance your browsing experience and analyze our traffic. 
+          <a href="#" @click.prevent="showDetailedSettings = true" class="settings-link">Customize preferences</a> 
+          or choose from the options below.
+        </p>
+      </div>
+      
+      <div class="cookie-banner-actions">
+        <button @click="rejectAll" class="btn btn-secondary">
+          Reject All
+        </button>
+        <button @click="acceptAll" class="btn btn-primary">
+          Accept All
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Detailed settings modal (shown when user clicks customize) -->
+  <div v-if="showConsent && showDetailedSettings" class="cookie-consent-overlay">
     <div class="cookie-consent-modal">
       <div class="cookie-consent-header">
-        <h3>Cookie Consent</h3>
+        <h3>Cookie Preferences</h3>
+        <button @click="showDetailedSettings = false" class="close-button">×</button>
       </div>
       
       <div class="cookie-consent-content">
@@ -80,7 +105,7 @@
           @click="acceptSelected" 
           class="btn btn-primary"
         >
-          Accept Selected
+          Save Preferences
         </button>
         <button 
           @click="acceptAll" 
@@ -107,6 +132,7 @@ export default {
   data() {
     return {
       showConsent: false,
+      showDetailedSettings: false,
       consent: {
         necessary: true,
         analytics: false,
@@ -160,18 +186,90 @@ export default {
       
       localStorage.setItem('cookie-consent', JSON.stringify(consentData));
       this.showConsent = false;
+      this.showDetailedSettings = false;
       this.$emit('consent-given', this.consent);
     },
     
     // Method to show consent modal again (for settings)
     showConsentModal() {
       this.showConsent = true;
+      this.showDetailedSettings = true;
     }
   }
 }
 </script>
 
 <style scoped>
+/* Bottom banner styles */
+.cookie-consent-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #1f2937;
+  color: white;
+  z-index: 9999;
+  border-top: 3px solid #5C95FF;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.cookie-banner-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.cookie-banner-text {
+  flex: 1;
+}
+
+.cookie-banner-text h4 {
+  margin: 0 0 8px 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+}
+
+.cookie-banner-text p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #d1d5db;
+}
+
+.settings-link {
+  color: #60a5fa;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.settings-link:hover {
+  color: #93c5fd;
+}
+
+.cookie-banner-actions {
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+/* Modal overlay styles (unchanged but improved) */
 .cookie-consent-overlay {
   position: fixed;
   top: 0;
@@ -211,6 +309,9 @@ export default {
 .cookie-consent-header {
   padding: 24px 24px 0 24px;
   border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .cookie-consent-header h3 {
@@ -218,6 +319,22 @@ export default {
   font-size: 1.5rem;
   font-weight: 600;
   color: #1f2937;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #6b7280;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: color 0.2s ease;
+}
+
+.close-button:hover {
+  color: #374151;
+  background: #f3f4f6;
 }
 
 .cookie-consent-content {
@@ -281,13 +398,22 @@ export default {
 }
 
 .btn {
-  padding: 12px 24px;
+  padding: 10px 20px;
   border: none;
-  border-radius: 8px;
+  border-radius: 6px;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
   font-size: 0.875rem;
+  white-space: nowrap;
+}
+
+.cookie-banner-actions .btn {
+  padding: 8px 16px;
+  font-size: 0.85rem;
+}
+
+.cookie-consent-actions .btn {
   flex: 1;
   min-width: 120px;
 }
@@ -303,7 +429,7 @@ export default {
 }
 
 .btn-primary {
-  background: #3b82f6;
+  background: #5C95FF;
   color: white;
 }
 
@@ -344,7 +470,18 @@ export default {
 }
 
 /* Mobile responsiveness */
-@media (max-width: 640px) {
+@media (max-width: 768px) {
+  .cookie-banner-content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    padding: 16px 20px;
+  }
+  
+  .cookie-banner-actions {
+    justify-content: center;
+  }
+  
   .cookie-consent-modal {
     width: 95%;
     margin: 20px;
@@ -354,8 +491,27 @@ export default {
     flex-direction: column;
   }
   
-  .btn {
+  .cookie-consent-actions .btn {
     width: 100%;
+  }
+  
+  .cookie-banner-actions .btn {
+    flex: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .cookie-banner-text h4 {
+    font-size: 1rem;
+  }
+  
+  .cookie-banner-text p {
+    font-size: 0.85rem;
+  }
+  
+  .cookie-banner-actions {
+    flex-direction: column;
+    gap: 8px;
   }
 }
 </style>
