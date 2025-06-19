@@ -10,8 +10,8 @@
 
     <div class="container">
       <!-- LayerZ Logo -->
-      <img src="https://lz-assets.s3.eu-west-1.amazonaws.com/layerz-logo.png" alt="LayerZ Logo" class="logo" />
-      
+      <img src="@/assets/logo/layerz-logo.png" alt="LayerZ Logo" class="logo" />
+
       <!-- Error Code -->
       <div class="error-code">404</div>
       

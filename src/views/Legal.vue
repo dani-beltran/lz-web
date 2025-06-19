@@ -3,7 +3,7 @@
     <div class="container">
       <div class="legal-content">
         <div class="logo-section">
-          <img src="https://lz-assets.s3.eu-west-1.amazonaws.com/layerz-logo-black.svg" alt="Layer Z Logo" class="logo-img">
+          <img src="@/assets/logo/layerz-logo-black.svg"alt="Layer Z Logo" class="logo-img">
           <h1>Layer Z</h1>
           <p>Legal Information Hub</p>
         </div>
