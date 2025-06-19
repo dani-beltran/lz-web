@@ -120,7 +120,7 @@
         <p>
           You can change your preferences at any time by clicking the cookie settings 
           link in our footer. For more information, please read our 
-          <a href="/privacy-policy" target="_blank">Privacy Policy</a>.
+          <a href="/privacy-policy.html" target="_blank">Privacy Policy</a>.
         </p>
       </div>
     </div>
