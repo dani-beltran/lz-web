@@ -54,6 +54,7 @@
     
     <div class="footer-bottom">
       <p>&copy; 2025 Herragen AG. All rights reserved.</p>
+      <p>Layer Z is a trademark of Herragen A.G., registered in Switzerland and other countries.</p>
       <div class="social-links">
         <a href="https://x.com/layerz_com" aria-label="Twitter">
           <TwitterIcon :size="20" inverted />

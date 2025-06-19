@@ -497,9 +497,6 @@ export default {
   mounted() {
     this.handleScroll()
     window.addEventListener('scroll', this.handleScroll)
-    this.setupSmoothScrolling()
-    this.highlightCurrentSection()
-    window.addEventListener('scroll', this.highlightCurrentSection)
     
     // Add keyboard navigation
     this.setupKeyboardNavigation()
@@ -516,40 +513,7 @@ export default {
     handleScroll() {
       this.showScrollTop = window.pageYOffset > 300
     },
-    setupSmoothScrolling() {
-      // Enable smooth scrolling for anchor links
-      this.$nextTick(() => {
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-          anchor.addEventListener('click', (e) => {
-            e.preventDefault()
-            const target = document.querySelector(anchor.getAttribute('href'))
-            if (target) {
-              target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-              })
-            }
-          })
-        })
-      })
-    },
-    highlightCurrentSection() {
-      // Highlight current section in TOC (optional enhancement)
-      const sections = document.querySelectorAll('.section')
-      const tocLinks = document.querySelectorAll('.toc a')
-      
-      let currentSection = ''
-      sections.forEach(section => {
-        const rect = section.getBoundingClientRect()
-        if (rect.top <= 100 && rect.bottom >= 100) {
-          currentSection = section.id
-        }
-      })
-      
-      tocLinks.forEach(link => {
-        link.style.fontWeight = link.getAttribute('href') === `#${currentSection}` ? 'bold' : 'normal'
-      })
-    },
+    
     setupKeyboardNavigation() {
       document.addEventListener('keydown', this.handleKeyDown)
     },
