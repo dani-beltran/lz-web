@@ -50,6 +50,7 @@
 <script>
 import { onBeforeUnmount } from 'vue'
 import { useModal } from '@/composables/useModal.js'
+import { useViewTracking } from "@/composables/useViewTracking";
 import LinkedinIcon from './icons/LinkedinIcon.vue'
 import ContactForm from './ContactForm.vue'
 import { emailService } from '../services/emailService';
@@ -62,9 +63,13 @@ export default {
   },
   mounted() {
     emailService.init();
+    this.setupViewTracking(this.$el);
   },
   setup() {
     const { openModal, cleanup } = useModal()
+
+    // Setup view tracking for this section
+    const { hasBeenViewed, setupTracking, cleanup: cleanupViewTracking } = useViewTracking("section-four", {});
 
     const handleFormSubmit = async (formData) => {
       trackFormSubmission("contact-form-submission");
@@ -81,10 +86,14 @@ export default {
     // Cleanup when component unmounts
     onBeforeUnmount(() => {
       cleanup()
+      cleanupViewTracking()
     })
 
     return {
-      openContactModal
+      openContactModal,
+      hasBeenViewed,
+      setupViewTracking: setupTracking,
+      cleanupViewTracking,
     }
   }
 };

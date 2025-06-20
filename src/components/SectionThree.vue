@@ -55,6 +55,7 @@
 
 <script>
 import { Rocket, Sparkles, Brain, Unplug, HeartHandshake, Images } from "lucide-vue-next";
+import { useViewTracking } from "@/composables/useViewTracking";
 
 export default {
   name: "SectionThree",
@@ -65,6 +66,22 @@ export default {
     Brain,
     Unplug,
     Images
+  },
+  setup() {
+    // Setup view tracking for this section
+    const { hasBeenViewed, setupTracking, cleanup } = useViewTracking("section-three", {});
+
+    return {
+      hasBeenViewed,
+      setupViewTracking: setupTracking,
+      cleanupViewTracking: cleanup,
+    };
+  },
+  mounted() {
+    this.setupViewTracking(this.$el);
+  },
+  beforeUnmount() {
+    this.cleanupViewTracking();
   },
 };
 </script>

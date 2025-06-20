@@ -277,6 +277,7 @@ import {
   Info,
   Headset,
 } from "lucide-vue-next";
+import { useViewTracking } from "@/composables/useViewTracking";
 
 export default {
   name: "SectionTwo",
@@ -291,6 +292,22 @@ export default {
     MessageCircleQuestion,
     Info,
     Headset
+  },
+  setup() {
+    // Setup view tracking for this section
+    const { hasBeenViewed, setupTracking, cleanup } = useViewTracking("section-two", {});
+
+    return {
+      hasBeenViewed,
+      setupViewTracking: setupTracking,
+      cleanupViewTracking: cleanup,
+    };
+  },
+  mounted() {
+    this.setupViewTracking(this.$el);
+  },
+  beforeUnmount() {
+    this.cleanupViewTracking();
   },
 };
 </script>

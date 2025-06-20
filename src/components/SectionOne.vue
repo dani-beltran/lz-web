@@ -28,11 +28,22 @@
 <script>
 import TextSlider from "./TextSlider.vue";
 import { trackButtonClick } from "@/utils/analytics";
+import { useViewTracking } from "@/composables/useViewTracking";
 
 export default {
   name: "SectionOne",
   components: {
     TextSlider,
+  },
+  setup() {
+    // Setup view tracking for this section
+    const { hasBeenViewed, setupTracking, cleanup } = useViewTracking("section-one", {});
+
+    return {
+      hasBeenViewed,
+      setupViewTracking: setupTracking,
+      cleanupViewTracking: cleanup,
+    };
   },
   data() {
     return {
@@ -43,6 +54,12 @@ export default {
         'Layer Z goes beyond <span class="highlight">personalisation</span>,<br>It connects through <span class="highlight">human-like</span><br>conversations, triggered by real<br><span class="highlight">behaviour</span>',
       ],
     };
+  },
+  mounted() {
+    this.setupViewTracking(this.$el);
+  },
+  beforeUnmount() {
+    this.cleanupViewTracking();
   },
   methods: {
     onSlideChange(slideIndex) {

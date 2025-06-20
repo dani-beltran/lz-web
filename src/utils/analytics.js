@@ -92,7 +92,7 @@ export function trackPageView(pagePath, pageTitle) {
 export function trackEvent(eventName, parameters = {}) {
   if (!canTrack()) {
     if (GA_CONFIG.DEBUG) {
-      console.log('Event not tracked - analytics disabled or no consent:', eventName);
+      console.log('Event not tracked - analytics disabled or no consent:', eventName, parameters);
     }
     return;
   }
