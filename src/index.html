@@ -1,12 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Layer Z</title>
-    <link rel="icon" type="image/png" href="favicon.png">
-</head>
-<body>
+    <link rel="icon" type="image/png" href="favicon.png" />
+  </head>
+  <body>
     <div id="app"></div>
-</body>
+    
+    <!-- LayerZ SDK -->
+    <script
+      id="layerz-sdk"
+      async
+      src="https://lz-web-sdk-prod.s3.eu-west-1.amazonaws.com/latest/lz-web-sdk.js"
+    ></script>
+    <script>
+      var script = document.querySelector("#layerz-sdk");
+      script.addEventListener("load", function () {
+        LayerZ.init({
+          workspaceId: "685530a60c33d25cb3b34cab",
+        });
+      });
+    </script>
+  </body>
 </html>
