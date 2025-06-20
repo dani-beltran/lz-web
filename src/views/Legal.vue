@@ -3,7 +3,7 @@
     <div class="container">
       <div class="legal-content">
         <div class="logo-section">
-          <img src="@/assets/logo/layerz-logo-black.svg"alt="Layer Z Logo" class="logo-img">
+          <img src="@/assets/logo/layerz-logo-black.svg" alt="Layer Z Logo" class="logo-img">
           <h1>Layer Z</h1>
           <p>Legal Information Hub</p>
         </div>
@@ -13,42 +13,51 @@
           All legal documents are current and compliant with Swiss and EU regulations.
         </div>
 
+        <div class="nav-buttons">
+          <router-link to="/" class="nav-btn primary">
+            ← Back to Home
+          </router-link>
+        </div>
+
         <div class="legal-grid">
           <div class="legal-card">
             <div class="icon">📋</div>
             <h3>Terms of Service</h3>
-            <p>Our terms of service outline the rules and regulations for using the Layer Z platform. This includes user responsibilities, acceptable use policies, payment terms, and service limitations.</p>
+            <p>Our terms of service outline the rules and regulations for using the Layer Z platform. This includes user
+              responsibilities, acceptable use policies, payment terms, and service limitations.</p>
             <router-link to="/terms-of-service" class="btn">Read Terms of Service</router-link>
           </div>
 
           <div class="legal-card">
             <div class="icon">🔒</div>
             <h3>Privacy Policy</h3>
-            <p>Our privacy policy explains how we collect, use, and protect your personal data. We are committed to transparency and compliance with GDPR, Swiss FADP, and other privacy regulations.</p>
+            <p>Our privacy policy explains how we collect, use, and protect your personal data. We are committed to
+              transparency and compliance with GDPR, Swiss FADP, and other privacy regulations.</p>
             <router-link to="/privacy-policy" class="btn">Read Privacy Policy</router-link>
           </div>
         </div>
 
         <div class="company-info">
           <h3>🏢 Company Information</h3>
-          <p><strong>Herragen A.G.</strong> is a Swiss technology company specializing in digital experience platforms. We are committed to providing transparent, secure, and compliant services to our customers worldwide.</p>
-          
+          <p><strong>Herragen A.G.</strong> is a Swiss technology company specializing in digital experience platforms.
+            We are committed to providing transparent, secure, and compliant services to our customers worldwide.</p>
+
           <div class="contact-grid">
             <div class="contact-item">
               <h4>Registered Address</h4>
               <p>Brandrain 1<br>8707 Uetikon am See, Switzerland</p>
             </div>
-            
+
             <div class="contact-item">
               <h4>Registration</h4>
               <p>CHE-492.826.814<br>Swiss Commercial Register</p>
             </div>
-            
+
             <div class="contact-item">
               <h4>Legal Inquiries</h4>
               <p>support@herragen.com<br>Mike Rogers</p>
             </div>
-            
+
             <div class="contact-item">
               <h4>Privacy Officer</h4>
               <p>support@herragen.com<br>Mike Rogers</p>
@@ -60,7 +69,8 @@
           <div class="legal-card">
             <div class="icon">🍪</div>
             <h3>Cookie Policy</h3>
-            <p>Learn about how we use cookies and similar tracking technologies. Manage your cookie preferences and understand your choices regarding data collection.</p>
+            <p>Learn about how we use cookies and similar tracking technologies. Manage your cookie preferences and
+              understand your choices regarding data collection.</p>
             <router-link to="/cookie-policy" class="btn">Read Cookie Policy</router-link>
           </div>
 
@@ -68,15 +78,19 @@
           <div class="legal-card" style="display: none;">
             <div class="icon">🛡️</div>
             <h3>Security Information</h3>
-            <p>Information about our security practices, data protection measures, and how we keep your information safe. Includes our security certifications and compliance standards.</p>
+            <p>Information about our security practices, data protection measures, and how we keep your information
+              safe. Includes our security certifications and compliance standards.</p>
             <router-link to="#security" class="btn">Security Details</router-link>
           </div>
         </div>
 
         <div class="footer-note">
-          <p><strong>Compliance:</strong> Herragen A.G. operates under Swiss law and complies with international standards including GDPR (EU), CCPA (California), and Swiss Federal Act on Data Protection (FADP).</p>
-          <p><strong>Languages:</strong> This legal information is available in English<span style="display: none;">, German, French, and Italian. In case of discrepancies, the English version shall prevail.</span></p>
-          <p><strong>Contact:</strong> For legal questions or concerns, please contact our legal department at support@herragen.com</p>
+          <p><strong>Compliance:</strong> Herragen A.G. operates under Swiss law and complies with international
+            standards including GDPR (EU), CCPA (California), and Swiss Federal Act on Data Protection (FADP).</p>
+          <p><strong>Languages:</strong> This legal information is available in English<span style="display: none;">,
+              German, French, and Italian. In case of discrepancies, the English version shall prevail.</span></p>
+          <p><strong>Contact:</strong> For legal questions or concerns, please contact our legal department at
+            support@herragen.com</p>
         </div>
       </div>
     </div>
@@ -114,13 +128,13 @@ export default {
       // Add interactive effects to cards
       this.$nextTick(() => {
         const cards = document.querySelectorAll('.legal-card')
-        
+
         cards.forEach(card => {
-          card.addEventListener('mouseenter', function() {
+          card.addEventListener('mouseenter', function () {
             this.style.transform = 'translateY(-8px) scale(1.02)'
           })
-          
-          card.addEventListener('mouseleave', function() {
+
+          card.addEventListener('mouseleave', function () {
             this.style.transform = 'translateY(0) scale(1)'
           })
         })
@@ -183,7 +197,8 @@ export default {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   margin-bottom: 0.5rem;
-  display: none; /* Hidden when logo image is used */
+  display: none;
+  /* Hidden when logo image is used */
 }
 
 .logo-section p {
@@ -310,6 +325,34 @@ export default {
   font-size: 0.85rem;
 }
 
+.nav-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.nav-btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.nav-btn.primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.nav-btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
 .scroll-top {
   position: fixed;
   bottom: 2rem;
@@ -361,6 +404,15 @@ export default {
 
   .contact-grid {
     grid-template-columns: 1fr;
+  }
+
+  .nav-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .nav-btn {
+    text-align: center;
   }
 }
 </style>
