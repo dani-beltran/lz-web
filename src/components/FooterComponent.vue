@@ -79,6 +79,7 @@ import LinkedinIcon from './icons/LinkedinIcon.vue'
 import YouTubeIcon from './icons/YouTubeIcon.vue'
 import ContactForm from './ContactForm.vue'
 import { emailService } from '../services/emailService'
+import { trackFormSubmission } from '@/utils/analytics'
 
 export default {
   name: 'FooterComponent',
@@ -93,9 +94,10 @@ export default {
   setup() {
     const { openModal, closeModal, cleanup } = useModal()
 
-    const handleFormSubmit = (formData) => {
+    const handleFormSubmit = async (formData) => {
       try {
-        emailService.sendContactForm(formData);
+        trackFormSubmission("contact-form-submission");
+        await emailService.sendContactForm(formData);
         console.log('Email sent successfully with data:', formData);
       } catch (error) {
         console.error('Error sending email:', error);

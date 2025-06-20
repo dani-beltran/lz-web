@@ -27,6 +27,7 @@
 
 <script>
 import TextSlider from "./TextSlider.vue";
+import { trackButtonClick } from "@/utils/analytics";
 
 export default {
   name: "SectionOne",
@@ -48,6 +49,7 @@ export default {
       // Handle slide change if needed
     },
     redirectToDashboard() {
+      trackButtonClick("get-started-button");
       window.open("https://dashboard.layerz.com/sign-up", "_blank");
     },
   },

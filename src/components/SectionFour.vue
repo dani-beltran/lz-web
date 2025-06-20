@@ -7,11 +7,7 @@
     <div class="section-content">
       <div class="grid-container">
         <div class="grid-item" style="background-color: rgba(113, 44, 246, 0.01)">
-          <img
-            src="@/assets/imgs/mike.jpg"
-            alt="Team Member 1"
-            class="item-image"
-          />
+          <img src="@/assets/imgs/mike.jpg" alt="Team Member 1" class="item-image" />
           <div class="text-container">
             <h3 class="subtitle">Mike Rogers</h3>
             <p class="paragraph">CEO and Co-founder</p>
@@ -21,11 +17,7 @@
           </div>
         </div>
         <div class="grid-item" style="background-color: rgba(243, 56, 158, 0.01)">
-          <img
-            src="@/assets/imgs/marc.jpg"
-            alt="Team Member 2"
-            class="item-image"
-          />
+          <img src="@/assets/imgs/marc.jpg" alt="Team Member 2" class="item-image" />
           <div class="text-container">
             <h3 class="subtitle">Marc Lamarche</h3>
             <p class="paragraph">CMO and Co-founder</p>
@@ -35,11 +27,7 @@
           </div>
         </div>
         <div class="grid-item" style="background-color: rgba(92, 149, 255, 0.01)">
-          <img
-            src="@/assets/imgs/dani.jpg"
-            alt="Team Member 3"
-            class="item-image"
-          />
+          <img src="@/assets/imgs/dani.jpg" alt="Team Member 3" class="item-image" />
           <div class="text-container">
             <h3 class="subtitle">Daniel Beltran</h3>
             <p class="paragraph">CTO and Co-founder</p>
@@ -49,7 +37,7 @@
           </div>
         </div>
       </div>
-      
+
       <!-- Contact Us Button -->
       <div class="contact-button-container">
         <button class="contact-us-btn" @click="openContactModal">
@@ -65,6 +53,7 @@ import { useModal } from '@/composables/useModal.js'
 import LinkedinIcon from './icons/LinkedinIcon.vue'
 import ContactForm from './ContactForm.vue'
 import { emailService } from '../services/emailService';
+import { trackButtonClick, trackFormSubmission } from '@/utils/analytics';
 
 export default {
   name: "SectionFour",
@@ -78,10 +67,12 @@ export default {
     const { openModal, cleanup } = useModal()
 
     const handleFormSubmit = async (formData) => {
-        await emailService.sendContactForm(formData);
+      trackFormSubmission("contact-form-submission");
+      await emailService.sendContactForm(formData);
     }
 
     const openContactModal = () => {
+      trackButtonClick("contact-us-button");
       openModal(ContactForm, {
         onSubmit: handleFormSubmit
       })
@@ -105,6 +96,7 @@ export default {
   position: relative;
   padding: 60px 80px;
 }
+
 .section-4 {
   background-color: #FFF;
 }
@@ -114,7 +106,8 @@ export default {
   width: 100%;
   margin: 0 auto;
   margin-bottom: 40px;
-  color: #270972; /* Indigo */
+  color: #270972;
+  /* Indigo */
 }
 
 .section-content {
@@ -176,7 +169,8 @@ export default {
 }
 
 .text-container p {
-  color: #6b7280; /* Gray */
+  color: #6b7280;
+  /* Gray */
 }
 
 .linkedin-icon {
