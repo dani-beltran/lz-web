@@ -192,7 +192,6 @@ export function setupScrollTracking() {
 export async function reinitializeAnalytics() {
   if (hasAnalyticsConsent()) {
     await initGA();
-    trackPageView(window.location.pathname, document.title);
     setupScrollTracking();
   }
 }
