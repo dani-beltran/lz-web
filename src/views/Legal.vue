@@ -18,14 +18,14 @@
             <div class="icon">📋</div>
             <h3>Terms of Service</h3>
             <p>Our terms of service outline the rules and regulations for using the Layer Z platform. This includes user responsibilities, acceptable use policies, payment terms, and service limitations.</p>
-            <router-link to="/terms-of-service.html" class="btn">Read Terms of Service</router-link>
+            <router-link to="/terms-of-service" class="btn">Read Terms of Service</router-link>
           </div>
 
           <div class="legal-card">
             <div class="icon">🔒</div>
             <h3>Privacy Policy</h3>
             <p>Our privacy policy explains how we collect, use, and protect your personal data. We are committed to transparency and compliance with GDPR, Swiss FADP, and other privacy regulations.</p>
-            <router-link to="/privacy-policy.html" class="btn">Read Privacy Policy</router-link>
+            <router-link to="/privacy-policy" class="btn">Read Privacy Policy</router-link>
           </div>
         </div>
 
@@ -61,7 +61,7 @@
             <div class="icon">🍪</div>
             <h3>Cookie Policy</h3>
             <p>Learn about how we use cookies and similar tracking technologies. Manage your cookie preferences and understand your choices regarding data collection.</p>
-            <router-link to="/cookie-policy.html" class="btn">Read Cookie Policy</router-link>
+            <router-link to="/cookie-policy" class="btn">Read Cookie Policy</router-link>
           </div>
 
           <!-- Hidden until implemented -->

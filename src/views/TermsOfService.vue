@@ -2,8 +2,17 @@
   <div class="terms-of-service">
     <div class="header">
       <div class="container">
-        <h1>Terms of Service</h1>
-        <p>Layer Z Platform by Herragen A.G.</p>
+        <div class="header-content">
+          <div class="title-section">
+            <h1>Terms of Service</h1>
+            <p>Layer Z Platform by Herragen A.G.</p>
+          </div>
+          <div class="navigation-section">
+            <router-link to="/" class="back-to-home-btn">
+              ← Back to Home
+            </router-link>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -191,7 +200,7 @@
         <section id="privacy" class="section">
           <h2>8. Privacy and Data Protection</h2>
           
-          <p>Your privacy is important to us. Our collection, use, and protection of your personal data is governed by our <router-link to="/privacy-policy.html">Privacy Policy</router-link>, which is incorporated into these Terms by reference.</p>
+          <p>Your privacy is important to us. Our collection, use, and protection of your personal data is governed by our <router-link to="/privacy-policy">Privacy Policy</router-link>, which is incorporated into these Terms by reference.</p>
 
           <h3>8.1 Data Processing</h3>
           <p>By using Layer Z, you consent to our processing of your data as described in our Privacy Policy. This includes:</p>
@@ -582,6 +591,89 @@ export default {
   visibility: visible;
 }
 
+/* Header Navigation Styles */
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.title-section {
+  text-align: left;
+}
+
+.navigation-section {
+  text-align: right;
+}
+
+.back-to-home-btn {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.back-to-home-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Footer Navigation Styles */
+.navigation-footer {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 2px solid #e9ecef;
+  text-align: center;
+}
+
+.nav-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.nav-btn.primary {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  color: white;
+}
+
+.nav-btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(118, 75, 162, 0.4);
+}
+
+.nav-btn.secondary {
+  background: white;
+  color: #6c757d;
+  border-color: #dee2e6;
+}
+
+.nav-btn.secondary:hover {
+  background: #f8f9fa;
+  border-color: #adb5bd;
+  color: #495057;
+}
+
 .scroll-top:hover {
   background: #6a4c93;
   transform: translateY(-2px);
@@ -599,6 +691,26 @@ export default {
 
   .header h1 {
     font-size: 2rem;
+  }
+
+  .header-content {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .title-section,
+  .navigation-section {
+    text-align: center;
+  }
+
+  .nav-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .nav-btn {
+    text-align: center;
   }
 
   .section h2 {
