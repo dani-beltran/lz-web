@@ -1,14 +1,14 @@
 <template>
-  <div id="app">
+  <main role="main" id="main-content">
     <!-- Main Router View -->
     <router-view />
-    
-    <!-- Global Components -->
-    <FooterComponent />
-    
-    <!-- Cookie Consent Modal -->
-    <CookieConsent @consent-given="handleConsentGiven" />
-  </div>
+  </main>
+
+  <!-- Global Components -->
+  <FooterComponent />
+
+  <!-- Cookie Consent Modal -->
+  <CookieConsent @consent-given="handleConsentGiven" />
 </template>
 
 <script>

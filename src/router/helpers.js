@@ -17,7 +17,10 @@ export const scrollBehavior = (to, from, savedPosition) => {
  * @param {RouteMeta} meta 
  */
 export const updateDocumentTitle = (meta) => {
-  document.title = meta.title || 'Layer Z by Herragen A.G.'
+  if (!meta?.title) {
+    return
+  }
+  document.title = meta.title
 }
 
 /**
@@ -27,7 +30,7 @@ export const updateDocumentTitle = (meta) => {
  * @returns 
  */
 export const updateDocumentDescription = (meta) => {
-  if (!meta || !meta.description) {
+  if (!meta?.description) {
     return
   }
   let metaDescription = document.querySelector('meta[name="description"]')
